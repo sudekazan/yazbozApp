@@ -5,3 +5,37 @@ analyzer:
     - build/**
     - android/**
     - ios/**
+    - "**/*.g.dart"
+    - lib/l10n/generated/**
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+  errors:
+    # Yarım kalmış Future'lar ve dinamik çağrılar hata sayılır.
+    unawaited_futures: error
+    avoid_dynamic_calls: error
+
+linter:
+  rules:
+    # Release'de kullanıcı verisi loglanmasın (flutter_lints'te de açık, burada sabitlendi).
+    avoid_print: true
+    avoid_dynamic_calls: true
+    unawaited_futures: true
+    always_declare_return_types: true
+    prefer_final_locals: true
+    prefer_final_in_for_each: true
+    prefer_single_quotes: true
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true
+    directives_ordering: true
+    use_super_parameters: true
+    avoid_redundant_argument_values: true
+    cancel_subscriptions: true
+    close_sinks: true
+    only_throw_errors: true
+    throw_in_finally: true
+    no_adjacent_strings_in_list: true
+    test_types_in_equals: true
+    use_named_constants: true
