@@ -82,6 +82,12 @@ T requireEnum<T extends Enum>(
   throw FormatException('"$key" geçersiz', value);
 }
 
+T? requireEnumOrNull<T extends Enum>(
+  Map<String, Object?> json,
+  String key,
+  List<T> values,
+) => json[key] == null ? null : requireEnum(json, key, values);
+
 void requireType(Map<String, Object?> json, String type) {
   if (json['type'] != type) {
     throw FormatException('Beklenen tür "$type"', json['type']);
