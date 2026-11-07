@@ -72,6 +72,14 @@ class GameSnapshot {
 
   GameStatus get status => engine.evaluate(game);
 
+  /// Kazanan yarışmacılar: motor oyunu bitmiş sayıyorsa onun kazananları;
+  /// oyun "Oyunu Bitir" ile elle bitirildiyse o anki liderler. Sürüyorsa boş.
+  List<int> get winners {
+    final current = status;
+    if (current.isFinished) return current.winners;
+    return isFinished ? current.leaders : const [];
+  }
+
   /// Sıradaki eli dağıtacak koltuk.
   int get nextDealerSeat => seating_rules.nextDealerSeat(
     seatCount: config.seatCount,

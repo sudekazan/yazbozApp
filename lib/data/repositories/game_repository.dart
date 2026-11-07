@@ -185,6 +185,224 @@ class GameRepository {
     await _touch(row.gameId, now);
   });
 
+  // ------------------------------------------------- oyuncu, dağıtıcı, durum
+
+  /// Koltuğa yeni oyuncu oturtur; bir sonraki elden itibaren geçerli,
+  /// koltuğun puanları aynen sürer. Geri alınabilir.
+  Future<void> replacePlayer(int gameId, int seat, String name) =>
+      _changeSeating(
+        gameId,
+        seat,
+        name,
+        (seating, played, clean) =>
+            seating.replace(seat, clean, roundsPlayed: played),
+      );
+
+  /// Koltukta şu an oturanın ismini düzeltir; not bırakmaz. Geri alınabilir.
+  Future<void> renamePlayer(int gameId, int seat, String name) =>
+      _changeSeating(
+        gameId,
+        seat,
+        name,
+        (seating, played, clean) =>
+            seating.rename(seat, clean, roundsPlayed: played),
+      );
+
+  /// Sıradaki eli [seat] dağıtsın. Geri alınabilir.
+  Future<void> setDealer(int gameId, int seat) => _db.transaction(() async {
+    final game = await _requireEditable(gameId);
+    RangeError.checkValueInInterval(seat, 0, game.config.seatCount - 1, 'seat');
+    final offset = dealerOffsetFor(
+      seatCount: game.config.seatCount,
+      firstDealerSeat: game.firstDealerSeat,
+      roundsPlayed: game.rounds.length,
+      dealerSeat: seat,
+    );
+    if (offset == game.dealerOffset) return;
+    final now = _clock();
+    await _recordUndo(gameId, _UndoKind.dealerChanged, {
+      'offset': game.dealerOffset,
+    }, now);
+    await _updateGame(gameId, GamesCompanion(dealerOffset: Value(offset)));
+    await _touch(gameId, now);
+  });
+
+  Future<void> setDealerIndicator(int gameId, {required bool enabled}) =>
+      _updateGame(gameId, GamesCompanion(dealerIndicator: Value(enabled)));
+
+  /// Oyunu kesin olarak bitirir; artık düzenlenemez, geri alma kaydı silinir.
+  Future<void> finishGame(int gameId) => _db.transaction(() async {
+    final game = await _requireReadable(gameId);
+    if (game.isFinished) return;
+    final now = _clock();
+    await _updateGame(
+      gameId,
+      GamesCompanion(
+        status: const Value(_finished),
+        finishedAt: Value(now),
+        updatedAt: Value(now),
+      ),
+    );
+    await (_db.delete(
+      _db.undoActions,
+    )..where((a) => a.gameId.equals(gameId))).go();
+  });
+
+  /// Aynı kurulum, kurallar ve son oturan oyuncularla yeni oyun açar; eski
+  /// oyun bitmemişse bitirir. İlk dağıtıcı, eski oyunda sıradaki dağıtıcıdır.
+  Future<int> rematch(int gameId) => _db.transaction(() async {
+    final game = await _requireReadable(gameId);
+    await finishGame(gameId);
+    return createGame(
+      config: game.config,
+      rules: game.rules,
+      playerNames: game.currentNames,
+      firstDealerSeat: game.nextDealerSeat,
+      dealerIndicator: game.dealerIndicator,
+    );
+  });
+
+  /// Elleri siler, oyuncular kalır. Geri alınamaz (arayüz onay ister).
+  Future<void> restartGame(int gameId) => _db.transaction(() async {
+    final game = await _requireEditable(gameId);
+    final names = game.currentNames;
+    await (_db.delete(_db.rounds)..where((r) => r.gameId.equals(gameId))).go();
+    await (_db.delete(
+      _db.undoActions,
+    )..where((a) => a.gameId.equals(gameId))).go();
+    await (_db.delete(
+      _db.seatOccupants,
+    )..where((o) => o.gameId.equals(gameId))).go();
+    await _insertOccupants(gameId, [
+      for (var seat = 0; seat < names.length; seat++)
+        (seat: seat, name: names[seat], fromSequence: 0),
+    ]);
+    await _updateGame(gameId, const GamesCompanion(dealerOffset: Value(0)));
+    await _touch(gameId, _clock());
+  });
+
+  /// Listeden kaldırır; "Geri Al" için [restoreGame], kalıcı silmek için
+  /// [purgeDeletedGames].
+  Future<void> softDeleteGame(int gameId) =>
+      _updateGame(gameId, GamesCompanion(deletedAt: Value(_clock())));
+
+  Future<void> restoreGame(int gameId) =>
+      _updateGame(gameId, const GamesCompanion(deletedAt: Value(null)));
+
+  /// Silinmiş işaretli oyunları bağlı kayıtlarıyla kalıcı siler.
+  Future<void> purgeDeletedGames() =>
+      (_db.delete(_db.games)..where((g) => g.deletedAt.isNotNull())).go();
+
+  /// Daha önce kullanılan isimler; en son kullanılan önce, her isim bir kez.
+  /// Silinmiş oyunların isimleri önerilmez; kayıtlı gruplardakiler önerilir.
+  Future<List<String>> nameSuggestions({int limit = 20}) async {
+    final lastUsed = <String, DateTime>{};
+    void use(String name, DateTime at) {
+      final current = lastUsed[name];
+      if (current == null || at.isAfter(current)) lastUsed[name] = at;
+    }
+
+    final rows = await (_db.select(_db.seatOccupants).join([
+      innerJoin(_db.games, _db.games.id.equalsExp(_db.seatOccupants.gameId)),
+    ])..where(_db.games.deletedAt.isNull())).get();
+    for (final row in rows) {
+      use(
+        row.readTable(_db.seatOccupants).playerName,
+        row.readTable(_db.games).updatedAt,
+      );
+    }
+    for (final group in await _db.select(_db.playerGroups).get()) {
+      final members = _tryDecodeNames(group.membersJson);
+      for (final name in members) {
+        use(name, group.updatedAt);
+      }
+    }
+    final names = lastUsed.keys.toList()
+      ..sort((a, b) {
+        final byTime = lastUsed[b]!.compareTo(lastUsed[a]!);
+        return byTime != 0 ? byTime : a.compareTo(b);
+      });
+    return names.take(limit).toList();
+  }
+
+  Future<void> _changeSeating(
+    int gameId,
+    int seat,
+    String rawName,
+    Seating Function(Seating seating, int roundsPlayed, String name) change,
+  ) => _db.transaction(() async {
+    final game = await _requireEditable(gameId);
+    RangeError.checkValueInInterval(seat, 0, game.config.seatCount - 1, 'seat');
+    final error = validatePlayerName(rawName);
+    if (error != null) throw InvalidPlayerNameException(seat, error);
+    final name = normalizeName(rawName);
+    if (game.currentNames[seat] == name) return;
+
+    final now = _clock();
+    final oldRows = await (_db.select(
+      _db.seatOccupants,
+    )..where((o) => o.gameId.equals(gameId))).get();
+    await _recordUndo(gameId, _UndoKind.seatingChanged, {
+      'occupants': [
+        for (final o in oldRows)
+          {
+            'seat': o.seat,
+            'name': o.playerName,
+            'fromSequence': o.fromSequence,
+          },
+      ],
+    }, now);
+    await _saveSeating(game, change(game.seating, game.rounds.length, name));
+    await _touch(gameId, now);
+  });
+
+  /// Konumlu oturma düzenini kalıcı el numaralarıyla yazar.
+  Future<void> _saveSeating(GameSnapshot game, Seating seating) async {
+    final next = await _nextSequence(game);
+    int sequenceFor(int position) {
+      if (position <= 1) return 0;
+      if (position - 1 < game.rounds.length) {
+        return game.rounds[position - 1].sequence;
+      }
+      return next;
+    }
+
+    await (_db.delete(
+      _db.seatOccupants,
+    )..where((o) => o.gameId.equals(game.id))).go();
+    await _insertOccupants(game.id, [
+      for (final o in seating.occupants)
+        (seat: o.seat, name: o.name, fromSequence: sequenceFor(o.fromRound)),
+    ]);
+  }
+
+  List<String> _tryDecodeNames(String text) {
+    try {
+      final value = jsonDecode(text);
+      if (value is List) {
+        return [
+          for (final e in value)
+            if (e is String) e,
+        ];
+      }
+    } on FormatException {
+      // Bozuk grup kaydı öneriyi engellemez.
+    }
+    return const [];
+  }
+
+  Future<void> _updateGame(int gameId, GamesCompanion change) =>
+      (_db.update(_db.games)..where((g) => g.id.equals(gameId))).write(change);
+
+  Future<GameSnapshot> _requireReadable(int gameId) async {
+    final load = await loadGame(gameId);
+    return switch (load) {
+      GameLoaded(:final snapshot) => snapshot,
+      GameNotFound() => throw StateError('Oyun bulunamadı: $gameId'),
+      GameUnreadable() => throw StateError('Oyun okunamadı: $gameId'),
+    };
+  }
+
   // -------------------------------------------------------------- geri alma
 
   /// Oyundaki son işlemi geri alır. Geri alınacak işlem yoksa ya da kayıt
@@ -260,6 +478,31 @@ class GameRepository {
                 updatedAt: readTime('updatedAt'),
               ),
             );
+      case _UndoKind.seatingChanged:
+        final occupants = payload['occupants'];
+        if (occupants is! List) {
+          throw const FormatException('Oyuncu kaydı geçersiz');
+        }
+        final restored = [
+          for (final o in occupants)
+            if (o case {
+              'seat': final int seat,
+              'name': final String name,
+              'fromSequence': final int fromSequence,
+            })
+              (seat: seat, name: name, fromSequence: fromSequence)
+            else
+              throw FormatException('Oyuncu kaydı geçersiz', o),
+        ];
+        await (_db.delete(
+          _db.seatOccupants,
+        )..where((o) => o.gameId.equals(gameId))).go();
+        await _insertOccupants(gameId, restored);
+      case _UndoKind.dealerChanged:
+        await _updateGame(
+          gameId,
+          GamesCompanion(dealerOffset: Value(readInt('offset'))),
+        );
       case null:
         throw FormatException('Bilinmeyen geri alma türü', action.kind);
     }
@@ -418,9 +661,7 @@ class GameRepository {
       isFinished: game.isFinished,
       status: status,
       winnerNames: [
-        if (game.isFinished)
-          for (final winner in status.winners)
-            _contenderName(game, winner, names),
+        for (final winner in game.winners) _contenderName(game, winner, names),
       ],
     );
   }
@@ -559,7 +800,9 @@ Seating seatingFromRows(
 enum _UndoKind {
   roundAdded,
   roundEdited,
-  roundDeleted;
+  roundDeleted,
+  seatingChanged,
+  dealerChanged;
 
   static _UndoKind? fromName(String name) {
     for (final kind in values) {
