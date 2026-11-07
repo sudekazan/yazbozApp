@@ -122,20 +122,20 @@ abstract class GameRules {
 
 | Tablo | Sütunlar |
 |---|---|
-| `games` | id, template, team_mode, rules_json, status (active/finished), first_dealer_seat, dealer_offset, dealer_indicator, created_at, updated_at, finished_at?, deleted_at? |
-| `seats` | id, game_id → games (cascade), seat_index; tekil (game_id, seat_index) |
-| `seat_occupants` | id, seat_id → seats (cascade), player_name (1–20), from_round (1 = baştan) |
-| `rounds` | id, game_id → games (cascade), sequence, input_json, result_json (hesaplanmış puan önbelleği), created_at, updated_at; indeks (game_id, sequence) |
+| `games` | id, template, play_mode, seat_count, rules_json, status (active/finished), first_dealer_seat, dealer_offset, dealer_indicator, created_at, updated_at, finished_at?, deleted_at? |
+| `seat_occupants` | id, game_id → games (cascade), seat, player_name, from_sequence (oturduğu ilk elin sıra numarası; ilk oturanlar 0); tekil (game_id, seat, from_sequence) |
+| `rounds` | id, game_id → games (cascade), sequence, input_json, points_json (hesaplanmış puanlar), multiplier, created_at, updated_at; tekil (game_id, sequence) |
 | `undo_actions` | id, game_id → games (cascade), kind, payload_json, created_at |
-| `player_groups` | id, name (1–30), member_names_json (sıralı liste), created_at, updated_at |
+| `player_groups` | id, name (1–30), members_json (2–8 isim, sıralı), created_at, updated_at |
 | `app_settings` | tek satır: theme_mode, keep_screen_on, haptics, dealer_indicator_default |
 
 - **Otomatik kayıt:** Her el kaydı, düzenleme, silme tek bir transaction'da yazılır; aynı transaction'a geri alma kaydı da girer.
 - **Geri alma:** `undo_actions` oyun başına son 50 işlemi tutar (el ekleme, düzenleme, silme, oyuncu değiştirme, isim düzenleme, dağıtıcı değiştirme). Uygulama kapanıp açılsa da geri alınabilir.
 - **Ana sayfada kaydırıp silme:** Önce `deleted_at` işaretlenir, snackbar'daki "Geri Al" bunu temizler. Snackbar kapanınca ya da bir sonraki açılışta kalıcı silinir.
+- **Koltuklar:** Ayrı `seats` tablosu yok; koltuk sayısı `games.seat_count`'ta, oturanlar `seat_occupants`'ta. Oyuncu değişikliği el konumu yerine elin kalıcı sıra numarasıyla saklanır; önceki bir el silinince değişiklik yanlış ele kaymaz.
 - **İsim önerileri:** `seat_occupants` ve `player_groups` içindeki farklı isimler, son kullanıma göre sıralı. Ayrı oyuncu tablosu yok.
 - **Migration:** drift'in şema dökümü (`drift_schemas/`) repoya girer, her sürüm geçişi için otomatik test yazılır.
-- Sorgular sadece drift'in tip güvenli API'siyle; JSON sütunları tip dönüştürücüyle okunur. Bozuk JSON okunursa o oyun "açılamadı" olarak işaretlenir, uygulama çökmez.
+- Sorgular sadece drift'in tip güvenli API'siyle. JSON sütunları okunurken türü denetlenir; bozuk kayıt okunursa o oyun "açılamadı" olarak işaretlenir, uygulama çökmez. İsim uzunluğu veritabanında değil domain katmanında (emoji dahil) denetlenir.
 
 ## 6. Ekran akışı ve davranış
 
