@@ -192,8 +192,8 @@ class SeatOccupants extends Table with TableInfo {
     requiredDuringInsert: true,
     $customConstraints: 'NOT NULL',
   );
-  late final GeneratedColumn<int> fromRound = GeneratedColumn<int>(
-    'from_round',
+  late final GeneratedColumn<int> fromSequence = GeneratedColumn<int>(
+    'from_sequence',
     aliasedName,
     false,
     type: DriftSqlType.int,
@@ -206,7 +206,7 @@ class SeatOccupants extends Table with TableInfo {
     gameId,
     seat,
     playerName,
-    fromRound,
+    fromSequence,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -217,7 +217,7 @@ class SeatOccupants extends Table with TableInfo {
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
   List<Set<GeneratedColumn>> get uniqueKeys => [
-    {gameId, seat, fromRound},
+    {gameId, seat, fromSequence},
   ];
   @override
   Never map(Map<String, dynamic> data, {String? tablePrefix}) {
@@ -231,7 +231,7 @@ class SeatOccupants extends Table with TableInfo {
 
   @override
   List<String> get customConstraints => const [
-    'UNIQUE(game_id, seat, from_round)',
+    'UNIQUE(game_id, seat, from_sequence)',
   ];
   @override
   bool get dontWriteConstraints => true;

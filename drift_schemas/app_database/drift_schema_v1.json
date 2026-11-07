@@ -234,8 +234,8 @@
             "dsl_features": []
           },
           {
-            "name": "from_round",
-            "getter_name": "fromRound",
+            "name": "from_sequence",
+            "getter_name": "fromSequence",
             "moor_type": "int",
             "nullable": false,
             "customConstraints": null,
@@ -251,7 +251,7 @@
           [
             "game_id",
             "seat",
-            "from_round"
+            "from_sequence"
           ]
         ]
       }
@@ -652,7 +652,7 @@
       "sql": [
         {
           "dialect": "sqlite",
-          "sql": "CREATE TABLE IF NOT EXISTS \"seat_occupants\" (\"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, \"game_id\" INTEGER NOT NULL REFERENCES games (id) ON DELETE CASCADE, \"seat\" INTEGER NOT NULL, \"player_name\" TEXT NOT NULL, \"from_round\" INTEGER NOT NULL, UNIQUE (\"game_id\", \"seat\", \"from_round\"));"
+          "sql": "CREATE TABLE IF NOT EXISTS \"seat_occupants\" (\"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, \"game_id\" INTEGER NOT NULL REFERENCES games (id) ON DELETE CASCADE, \"seat\" INTEGER NOT NULL, \"player_name\" TEXT NOT NULL, \"from_sequence\" INTEGER NOT NULL, UNIQUE (\"game_id\", \"seat\", \"from_sequence\"));"
         }
       ]
     },

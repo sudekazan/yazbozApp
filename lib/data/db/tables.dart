@@ -42,12 +42,14 @@ class SeatOccupants extends Table {
   IntColumn get seat => integer()();
   TextColumn get playerName => text()();
 
-  /// 1'den başlar.
-  IntColumn get fromRound => integer()();
+  /// Bu oyuncunun oturduğu ilk elin `Rounds.sequence` numarası; ilk
+  /// oturanlar için 0. Konum yerine kalıcı numara saklandığı için önceki
+  /// bir el silinince değişiklik yanlış ele kaymaz.
+  IntColumn get fromSequence => integer()();
 
   @override
   List<Set<Column>> get uniqueKeys => [
-    {gameId, seat, fromRound},
+    {gameId, seat, fromSequence},
   ];
 }
 

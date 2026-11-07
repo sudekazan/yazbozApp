@@ -42,7 +42,7 @@ void main() {
             gameId: gameId,
             seat: 0,
             playerName: 'Ayşe',
-            fromRound: 1,
+            fromSequence: 0,
           ),
         );
     await db
