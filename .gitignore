@@ -1,0 +1,58 @@
+# --- Gizli bilgiler: asla commit'lenmez ---
+android/key.properties
+key.properties
+*.jks
+*.keystore
+*.p12
+*.p8
+*.mobileprovision
+ios/Runner/GoogleService-Info.plist
+android/app/google-services.json
+.env*
+env/
+
+# --- Üretilen kod (CI'da build_runner ve gen-l10n ile üretilir) ---
+*.g.dart
+lib/l10n/generated/
+
+# --- Derleme çıktıları ---
+build/
+/coverage/
+app.*.symbols
+app.*.map.json
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# --- Dart / Flutter ---
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.widget_preview/
+
+# --- IDE ---
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+
+# --- Diğer ---
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
