@@ -20,6 +20,9 @@ class GameRepository {
   final AppDatabase _db;
   final DateTime Function() _clock;
 
+  /// Oyun başına saklanan en fazla geri alma kaydı.
+  static const int maxUndoActions = 50;
+
   static const _active = 'active';
   static const _finished = 'finished';
 
@@ -134,6 +137,7 @@ class GameRepository {
               updatedAt: now,
             ),
           );
+      await _recordUndo(gameId, _UndoKind.roundAdded, {'roundId': id}, now);
       await _touch(gameId, now);
       return id;
     },
@@ -145,6 +149,13 @@ class GameRepository {
       final game = await _requireEditable(row.gameId);
       final result = game.engine.calculateRound(input, game.rules, game.config);
       final now = _clock();
+      await _recordUndo(row.gameId, _UndoKind.roundEdited, {
+        'roundId': row.id,
+        'inputJson': row.inputJson,
+        'pointsJson': row.pointsJson,
+        'multiplier': row.multiplier,
+        'updatedAt': row.updatedAt.millisecondsSinceEpoch,
+      }, now);
       await (_db.update(_db.rounds)..where((r) => r.id.equals(roundId))).write(
         RoundsCompanion(
           inputJson: Value(jsonEncode(input.toJson())),
@@ -160,9 +171,133 @@ class GameRepository {
   Future<void> deleteRound(int roundId) => _db.transaction(() async {
     final row = await _requireRound(roundId);
     await _requireEditable(row.gameId);
+    final now = _clock();
+    await _recordUndo(row.gameId, _UndoKind.roundDeleted, {
+      'roundId': row.id,
+      'sequence': row.sequence,
+      'inputJson': row.inputJson,
+      'pointsJson': row.pointsJson,
+      'multiplier': row.multiplier,
+      'createdAt': row.createdAt.millisecondsSinceEpoch,
+      'updatedAt': row.updatedAt.millisecondsSinceEpoch,
+    }, now);
     await (_db.delete(_db.rounds)..where((r) => r.id.equals(roundId))).go();
-    await _touch(row.gameId, _clock());
+    await _touch(row.gameId, now);
   });
+
+  // -------------------------------------------------------------- geri alma
+
+  /// Oyundaki son işlemi geri alır. Geri alınacak işlem yoksa ya da kayıt
+  /// bozuksa `false` döner (bozuk kayıt atlanır, uygulama çökmez).
+  Future<bool> undo(int gameId) => _db.transaction(() async {
+    final action =
+        await (_db.select(_db.undoActions)
+              ..where((a) => a.gameId.equals(gameId))
+              ..orderBy([(a) => OrderingTerm.desc(a.id)])
+              ..limit(1))
+            .getSingleOrNull();
+    if (action == null) return false;
+    await _requireEditable(gameId);
+    await (_db.delete(
+      _db.undoActions,
+    )..where((a) => a.id.equals(action.id))).go();
+    try {
+      await _applyInverse(gameId, action);
+    } on FormatException {
+      return false;
+    }
+    await _touch(gameId, _clock());
+    return true;
+  });
+
+  Future<void> _applyInverse(int gameId, UndoActionRow action) async {
+    final payload = _decodeObject(action.payloadJson);
+    int readInt(String key) => switch (payload[key]) {
+      final int value => value,
+      final other => throw FormatException(
+        'Geri alma alanı geçersiz: $key',
+        other,
+      ),
+    };
+    String readText(String key) => switch (payload[key]) {
+      final String value => value,
+      final other => throw FormatException(
+        'Geri alma alanı geçersiz: $key',
+        other,
+      ),
+    };
+    DateTime readTime(String key) =>
+        DateTime.fromMillisecondsSinceEpoch(readInt(key));
+
+    switch (_UndoKind.fromName(action.kind)) {
+      case _UndoKind.roundAdded:
+        await (_db.delete(
+          _db.rounds,
+        )..where((r) => r.id.equals(readInt('roundId')))).go();
+      case _UndoKind.roundEdited:
+        await (_db.update(
+          _db.rounds,
+        )..where((r) => r.id.equals(readInt('roundId')))).write(
+          RoundsCompanion(
+            inputJson: Value(readText('inputJson')),
+            pointsJson: Value(readText('pointsJson')),
+            multiplier: Value(readInt('multiplier')),
+            updatedAt: Value(readTime('updatedAt')),
+          ),
+        );
+      case _UndoKind.roundDeleted:
+        await _db
+            .into(_db.rounds)
+            .insert(
+              RoundsCompanion.insert(
+                id: Value(readInt('roundId')),
+                gameId: gameId,
+                sequence: readInt('sequence'),
+                inputJson: readText('inputJson'),
+                pointsJson: readText('pointsJson'),
+                multiplier: Value(readInt('multiplier')),
+                createdAt: readTime('createdAt'),
+                updatedAt: readTime('updatedAt'),
+              ),
+            );
+      case null:
+        throw FormatException('Bilinmeyen geri alma türü', action.kind);
+    }
+  }
+
+  Future<void> _recordUndo(
+    int gameId,
+    _UndoKind kind,
+    Map<String, Object?> payload,
+    DateTime now,
+  ) async {
+    await _db
+        .into(_db.undoActions)
+        .insert(
+          UndoActionsCompanion.insert(
+            gameId: gameId,
+            kind: kind.name,
+            payloadJson: jsonEncode(payload),
+            createdAt: now,
+          ),
+        );
+    // En eski kayıtlar sınırı aşınca silinir.
+    final keep =
+        await (_db.selectOnly(_db.undoActions)
+              ..addColumns([_db.undoActions.id])
+              ..where(_db.undoActions.gameId.equals(gameId))
+              ..orderBy([OrderingTerm.desc(_db.undoActions.id)])
+              ..limit(1, offset: maxUndoActions - 1))
+            .getSingleOrNull();
+    final oldestKept = keep?.read(_db.undoActions.id);
+    if (oldestKept != null) {
+      await (_db.delete(_db.undoActions)..where(
+            (a) =>
+                a.gameId.equals(gameId) & a.id.isSmallerThanValue(oldestKept),
+          ))
+          .go();
+    }
+  }
 
   // ------------------------------------------------------------- yardımcılar
 
@@ -418,4 +553,18 @@ Seating seatingFromRows(
         in bySeatAndPosition.entries)
       SeatOccupant(seat: seat, name: row.playerName, fromRound: position),
   ]);
+}
+
+/// Geri alma kaydı türleri. `name` veritabanında saklanır; değiştirilmemeli.
+enum _UndoKind {
+  roundAdded,
+  roundEdited,
+  roundDeleted;
+
+  static _UndoKind? fromName(String name) {
+    for (final kind in values) {
+      if (kind.name == name) return kind;
+    }
+    return null;
+  }
 }
