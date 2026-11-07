@@ -1,0 +1,58 @@
+{
+  "@@locale": "tr",
+
+  "appTitle": "Yazboz",
+  "@appTitle": {
+    "description": "Uygulamanın adı; ana sayfa başlığı ve sistem görev adı."
+  },
+
+  "settingsTooltip": "Ayarlar",
+  "@settingsTooltip": {
+    "description": "Ana sayfadaki ayarlar ikon butonunun ekran okuyucu etiketi."
+  },
+
+  "newGameButton": "Yeni Oyun Kur",
+  "@newGameButton": {
+    "description": "Ana sayfadaki büyük buton; oyun seçimine götürür."
+  },
+
+  "gameSelectTitle": "Oyun Seç",
+  "@gameSelectTitle": {
+    "description": "Oyun seçimi ekranının başlığı."
+  },
+
+  "gameSetupTitle": "Oyun Kurulumu",
+  "@gameSetupTitle": {
+    "description": "Oyun kurulumu ekranının başlığı."
+  },
+
+  "scoreboardTitle": "Skor Tablosu",
+  "@scoreboardTitle": {
+    "description": "Skor tablosu ekranının başlığı."
+  },
+
+  "gameOverTitle": "Oyun Sonu",
+  "@gameOverTitle": {
+    "description": "Oyun sonu ekranının başlığı."
+  },
+
+  "settingsTitle": "Ayarlar",
+  "@settingsTitle": {
+    "description": "Ayarlar ekranının başlığı."
+  },
+
+  "notFoundTitle": "Sayfa bulunamadı",
+  "@notFoundTitle": {
+    "description": "Geçersiz bir adres açıldığında gösterilen başlık."
+  },
+
+  "notFoundMessage": "Aradığın sayfa yok ya da taşınmış. Ana sayfadan devam edebilirsin.",
+  "@notFoundMessage": {
+    "description": "Geçersiz adreste gösterilen açıklama; kullanıcıyı suçlamaz, çözüm söyler."
+  },
+
+  "goHomeButton": "Ana Sayfaya Dön",
+  "@goHomeButton": {
+    "description": "Ana sayfaya götüren buton."
+  }
+}
