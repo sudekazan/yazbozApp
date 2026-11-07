@@ -13,8 +13,11 @@ Platformlar: iOS ve Android (Flutter).
 
 ```bash
 flutter pub get
+dart run build_runner build
 flutter run
 ```
+
+Veritabanı tablolarını (`lib/data/db/tables.dart`) değiştirdikten sonra `dart run build_runner build` tekrar çalıştırılmalı. Üretilen `*.g.dart` dosyaları repoya girmez.
 
 Her değişiklikten sonra:
 

@@ -293,6 +293,7 @@ Action'lar sürüm etiketiyle değil commit SHA'sıyla sabitlenir, workflow'un `
 
 ```bash
 flutter pub get
+dart run build_runner build
 dart format .
 flutter analyze
 flutter test
