@@ -42,7 +42,7 @@ Kapsam dışı (şimdilik yapma): bulut senkronizasyonu, hesap sistemi, reklam, 
 ## Git ve commit
 
 - Repo public: https://github.com/sudekazan/yazbozApp. Var olan dosyaları silme veya üzerine yazma, önce sor.
-- Commit öncesi sırayla: `dart format .`, `flutter analyze` (sıfır uyarı). Analyze başarısızsa commit atma. Testler commit için şart değil; yine de çalıştırıp sonucu söyle.
+- Commit öncesi sırayla: `dart format .`, `flutter analyze` (sıfır uyarı). Analyze başarısızsa commit atma. Testler commit için şart değil; sadece değişen kısmın testlerini çalıştır (`-r failures-only`), sonucu söyle.
 - Bir commit = tek mantıksal değişiklik. Mesaj sade Türkçe cümle, ön ek yok ("Skor tablosuna dağıtıcı göstergesi eklendi"). Bu kural tüm `.md` dosyaları için de geçerli.
 - Commit'ten önce `git status` ve `git diff --staged` ile neyin gittiğine bak; build çıktısı, IDE dosyası ve gizli dosya girmesin.
 - `git push` her aşama sonunda yapılır, ama sormadan push etme.
@@ -79,3 +79,4 @@ scripts/check_release_permissions.sh
 - 2026-11-07: Renk paleti "Çuha": tek vurgu rengi masa çuhası yeşili, puan rakamları renklendirilmez (`docs/plan.md` 6. bölüm).
 - 2026-11-07: Lint için flutter_lints + ek kurallar; üretilen `*.g.dart` ve l10n dosyaları repoya girmez, CI'da üretilir.
 - 2026-11-07: iOS deployment target 15.0. Release Android build'i `key.properties` yoksa debug anahtarıyla imzalanır (sadece CI için).
+- 2026-11-08: Commit öncesi tüm testler değil, sadece değişen kısmın testleri çalışır (`-r failures-only`); tam test iş bitince bir kez.
