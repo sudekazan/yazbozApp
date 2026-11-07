@@ -234,6 +234,25 @@ void main() {
       expect(ids, [keep]);
       expect(await db.select(db.rounds).get(), isEmpty);
     });
+    test('tek oyunun kalıcı silinmesi diğer silinmişlere dokunmaz', () async {
+      final other = await repo.createGame(
+        config: config,
+        rules: const FreeRuleSet(),
+        playerNames: const ['D', 'E', 'F'],
+      );
+      await repo.softDeleteGame(gameId);
+      await repo.softDeleteGame(other);
+      await repo.purgeDeletedGame(gameId);
+      await repo.restoreGame(other);
+
+      final ids = (await db.select(db.games).get()).map((g) => g.id);
+      expect(ids, [other]);
+    });
+
+    test('silinmemiş oyun tek tek kalıcı silinmez', () async {
+      await repo.purgeDeletedGame(gameId);
+      expect(await repo.loadGame(gameId), isA<GameLoaded>());
+    });
   });
 
   group('İsim önerileri', () {
