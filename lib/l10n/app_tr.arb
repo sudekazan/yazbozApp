@@ -16,10 +16,6 @@
   "@gameSelectTitle": {
     "description": "Oyun seçimi ekranının başlığı."
   },
-  "gameSetupTitle": "Oyun Kurulumu",
-  "@gameSetupTitle": {
-    "description": "Oyun kurulumu ekranının başlığı."
-  },
   "scoreboardTitle": "Skor Tablosu",
   "@scoreboardTitle": {
     "description": "Skor tablosu ekranının başlığı."

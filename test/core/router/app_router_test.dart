@@ -37,7 +37,7 @@ void main() {
   });
 
   final screens = {
-    AppRoutes.setup('okey'): 'Oyun Kurulumu',
+    AppRoutes.setup('okey'): 'Okey',
     AppRoutes.game(3): 'Skor Tablosu',
     AppRoutes.gameOver(3): 'Oyun Sonu',
   };

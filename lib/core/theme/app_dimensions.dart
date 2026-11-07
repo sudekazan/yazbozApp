@@ -43,6 +43,12 @@ abstract final class AppSizes {
   /// İki satırlı liste öğesinin en küçük yüksekliği.
   static const double listItemMinHeight = 72;
 
+  /// Oyun seçimindeki şablon kartının en küçük yüksekliği.
+  static const double templateCardMinHeight = 148;
+
+  /// Şablon kartındaki ikon kutusu.
+  static const double templateIconBox = 48;
+
   static const double icon = 24;
   static const double iconSmall = 16;
 }
