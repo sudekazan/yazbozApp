@@ -220,5 +220,374 @@
         "type": "String"
       }
     }
+  },
+  "setupGroupsTitle": "Kayıtlı gruplar",
+  "@setupGroupsTitle": {
+    "description": "Kurulumda grup listesinin başlığı."
+  },
+  "setupPlayerCount": "Kişi sayısı",
+  "@setupPlayerCount": {
+    "description": "Kişi sayısı seçicisinin etiketi."
+  },
+  "decreasePlayerCount": "Kişi sayısını azalt",
+  "@decreasePlayerCount": {
+    "description": "Ekran okuyucu etiketi."
+  },
+  "increasePlayerCount": "Kişi sayısını artır",
+  "@increasePlayerCount": {
+    "description": "Ekran okuyucu etiketi."
+  },
+  "setupPlayMode": "Oynanış",
+  "@setupPlayMode": {
+    "description": "Bireysel/eşli seçiminin etiketi."
+  },
+  "playModeIndividual": "Bireysel",
+  "@playModeIndividual": {
+    "description": "Oynanış seçeneği."
+  },
+  "playModePairs": "Eşli",
+  "@playModePairs": {
+    "description": "Oynanış seçeneği (2'ye 2)."
+  },
+  "setupPlayersTitle": "Oyuncular",
+  "@setupPlayersTitle": {
+    "description": "Oyuncu listesinin başlığı."
+  },
+  "setupPlayersHint": "Oturma sırasına göre sürükle.",
+  "@setupPlayersHint": {
+    "description": "Oyuncu listesinin açıklaması."
+  },
+  "setupPairsHint": "Karşılıklı oturanlar eş.",
+  "@setupPairsHint": {
+    "description": "Eşli oyunda takımların nasıl belirlendiği."
+  },
+  "defaultPlayerName": "Oyuncu {number}",
+  "@defaultPlayerName": {
+    "description": "Kurulumda dolu gelen varsayılan isim.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "playerFieldLabel": "{number}. oyuncunun adı",
+  "@playerFieldLabel": {
+    "description": "İsim alanının ekran okuyucu etiketi.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "movePlayer": "{name} sırasını değiştir",
+  "@movePlayer": {
+    "description": "Sürükleme tutamacının etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "teamLetterA": "A",
+  "@teamLetterA": {
+    "description": "Birinci takımın kısa adı."
+  },
+  "teamLetterB": "B",
+  "@teamLetterB": {
+    "description": "İkinci takımın kısa adı."
+  },
+  "teamLabel": "{team} takımı",
+  "@teamLabel": {
+    "description": "Takım rozetinin ekran okuyucu etiketi.",
+    "placeholders": {
+      "team": {
+        "type": "String"
+      }
+    }
+  },
+  "firstDealerIs": "İlk dağıtan: {name}",
+  "@firstDealerIs": {
+    "description": "İlk dağıtıcı bilgisi.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "makeFirstDealer": "{name} ilk dağıtsın",
+  "@makeFirstDealer": {
+    "description": "İlk dağıtıcıyı seçen düğmenin etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "suggestionsLabel": "Öneri:",
+  "@suggestionsLabel": {
+    "description": "Daha önce kullanılan isimlerin başındaki etiket."
+  },
+  "saveAsGroupButton": "Grup Olarak Kaydet",
+  "@saveAsGroupButton": {
+    "description": "Girilen isimleri grup olarak kaydeder."
+  },
+  "groupNameLabel": "Grup adı",
+  "@groupNameLabel": {
+    "description": "Grup adı alanının etiketi."
+  },
+  "cancelButton": "Vazgeç",
+  "@cancelButton": {
+    "description": "Diyaloğu kapatır."
+  },
+  "saveButton": "Kaydet",
+  "@saveButton": {
+    "description": "Kaydeder."
+  },
+  "groupSavedMessage": "{name} grubu kaydedildi",
+  "@groupSavedMessage": {
+    "description": "Grup kaydedilince bildirim.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "groupDoesNotFit": "{name} grubunda {count} kişi var; bu oyun {allowed} kişiyle oynanır.",
+  "@groupDoesNotFit": {
+    "description": "Grup şablona uymuyorsa. allowed: oynanabilen kişi sayıları (\"2 ya da 4\").",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      },
+      "allowed": {
+        "type": "String"
+      }
+    }
+  },
+  "orList": "{rest} ya da {last}",
+  "@orList": {
+    "description": "Seçenek listesinin sonu: \"3, 4 ya da 5\".",
+    "placeholders": {
+      "rest": {
+        "type": "String"
+      },
+      "last": {
+        "type": "String"
+      }
+    }
+  },
+  "startGameButton": "Oyunu Başlat",
+  "@startGameButton": {
+    "description": "Kurulumdaki ana buton."
+  },
+  "nameErrorEmpty": "İsim boş kalamaz. Bir isim yaz.",
+  "@nameErrorEmpty": {
+    "description": "Boş isim hatası."
+  },
+  "nameErrorTooLong": "İsim en fazla {max} karakter olabilir.",
+  "@nameErrorTooLong": {
+    "description": "Uzun isim hatası.",
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "winDirectionLabel": "Kim kazanır?",
+  "@winDirectionLabel": {
+    "description": "Serbest: kazanma yönü."
+  },
+  "winHighest": "En yüksek",
+  "@winHighest": {
+    "description": "Serbest: en yüksek toplam kazanır."
+  },
+  "winLowest": "En düşük",
+  "@winLowest": {
+    "description": "Serbest: en düşük toplam kazanır."
+  },
+  "targetLabel": "Hedef puan",
+  "@targetLabel": {
+    "description": "Hedef puan alanı."
+  },
+  "freeTargetHelper": "Boş bırakırsan oyunu sen bitirirsin.",
+  "@freeTargetHelper": {
+    "description": "Serbest: hedef isteğe bağlı."
+  },
+  "targetCustom": "Özel",
+  "@targetCustom": {
+    "description": "Hedef seçeneklerinde özel değer."
+  },
+  "targetRequired": "Hedef puanı gir.",
+  "@targetRequired": {
+    "description": "Hedef zorunluyken boş bırakılırsa."
+  },
+  "roundsLabel": "El sayısı",
+  "@roundsLabel": {
+    "description": "Oyunun kaç el süreceği."
+  },
+  "decreaseRounds": "El sayısını azalt",
+  "@decreaseRounds": {
+    "description": "Ekran okuyucu etiketi."
+  },
+  "increaseRounds": "El sayısını artır",
+  "@increaseRounds": {
+    "description": "Ekran okuyucu etiketi."
+  },
+  "batakModeLabel": "Mod",
+  "@batakModeLabel": {
+    "description": "Batak modu."
+  },
+  "batakPlain": "Düz Batak",
+  "@batakPlain": {
+    "description": "Batak modu."
+  },
+  "batakBidding": "İhaleli Batak",
+  "@batakBidding": {
+    "description": "Batak modu."
+  },
+  "gameLengthLabel": "Oyun süresi",
+  "@gameLengthLabel": {
+    "description": "El sayısı ya da hedef puan seçimi."
+  },
+  "rulesTitle": "Kurallar",
+  "@rulesTitle": {
+    "description": "Kural ayarları bölümü."
+  },
+  "rulesDefaultSubtitle": "Varsayılan değerler",
+  "@rulesDefaultSubtitle": {
+    "description": "Kurallar değiştirilmediyse."
+  },
+  "rulesChangedSubtitle": "Değiştirildi",
+  "@rulesChangedSubtitle": {
+    "description": "Kurallar değiştirildiyse."
+  },
+  "ruleNumberError": "Geçerli bir sayı gir.",
+  "@ruleNumberError": {
+    "description": "Sayı alanı boş ya da geçersiz."
+  },
+  "ruleRangeError": "{min} ile {max} arasında bir sayı gir.",
+  "@ruleRangeError": {
+    "description": "Sayı aralık dışında.",
+    "placeholders": {
+      "min": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "max": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "ruleStartingPoints": "Başlangıç puanı",
+  "@ruleStartingPoints": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleNormalFinish": "Normal bitiş",
+  "@ruleNormalFinish": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleOkeyFinish": "Okey atarak bitiş",
+  "@ruleOkeyFinish": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePairsFinish": "Çifte bitiş",
+  "@rulePairsFinish": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleOkeyPairsFinish": "Okey atarak çifte bitiş",
+  "@ruleOkeyPairsFinish": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleIndicator": "Gösterge",
+  "@ruleIndicator": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleFinishPoints": "Eli bitiren (eksi)",
+  "@ruleFinishPoints": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleNotOpenedPoints": "Hiç açamayan",
+  "@ruleNotOpenedPoints": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleOkeyMultiplier": "Okeyle bitiş çarpanı",
+  "@ruleOkeyMultiplier": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleHandFinishMultiplier": "Elden bitiş çarpanı",
+  "@ruleHandFinishMultiplier": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePairsFinishMultiplier": "Çiftten bitiş çarpanı",
+  "@rulePairsFinishMultiplier": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePairsRemainingMultiplier": "Çift açıp bitiremeyenin çarpanı",
+  "@rulePairsRemainingMultiplier": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePenaltyTileToMeld": "İşler taş atma cezası",
+  "@rulePenaltyTileToMeld": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePenaltyDiscardOkey": "Okey atma cezası",
+  "@rulePenaltyDiscardOkey": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePenaltyWrongOpen": "Yanlış açma cezası",
+  "@rulePenaltyWrongOpen": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleNormalPoints": "Normal galibiyet",
+  "@ruleNormalPoints": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleMarsPoints": "Mars",
+  "@ruleMarsPoints": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleDoublingCube": "Katlama küpü",
+  "@ruleDoublingCube": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePisti": "Pişti",
+  "@rulePisti": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleJackPisti": "Vale piştisi",
+  "@ruleJackPisti": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleMajority": "Kart çoğunluğu",
+  "@ruleMajority": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleClubTwo": "Sinek 2",
+  "@ruleClubTwo": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleDiamondTen": "Karo 10",
+  "@ruleDiamondTen": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleAce": "Her as",
+  "@ruleAce": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleJack": "Her vale",
+  "@ruleJack": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleMinBid": "En az ihale",
+  "@ruleMinBid": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleZeroTricksPoints": "Hiç el alamayan",
+  "@ruleZeroTricksPoints": {
+    "description": "Kurallar bölümündeki alan adı."
   }
 }
