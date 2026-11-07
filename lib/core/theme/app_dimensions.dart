@@ -37,6 +37,12 @@ abstract final class AppSizes {
   /// Numerik tuş takımındaki tuş yüksekliği.
   static const double keypadKeyHeight = 48;
 
+  /// Liste satırındaki şablon ikonu kutusu.
+  static const double listLeading = 40;
+
+  /// İki satırlı liste öğesinin en küçük yüksekliği.
+  static const double listItemMinHeight = 72;
+
   static const double icon = 24;
   static const double iconSmall = 16;
 }

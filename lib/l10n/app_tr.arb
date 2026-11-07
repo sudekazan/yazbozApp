@@ -1,58 +1,228 @@
 {
   "@@locale": "tr",
-
   "appTitle": "Yazboz",
   "@appTitle": {
     "description": "Uygulamanın adı; ana sayfa başlığı ve sistem görev adı."
   },
-
   "settingsTooltip": "Ayarlar",
   "@settingsTooltip": {
     "description": "Ana sayfadaki ayarlar ikon butonunun ekran okuyucu etiketi."
   },
-
   "newGameButton": "Yeni Oyun Kur",
   "@newGameButton": {
     "description": "Ana sayfadaki büyük buton; oyun seçimine götürür."
   },
-
   "gameSelectTitle": "Oyun Seç",
   "@gameSelectTitle": {
     "description": "Oyun seçimi ekranının başlığı."
   },
-
   "gameSetupTitle": "Oyun Kurulumu",
   "@gameSetupTitle": {
     "description": "Oyun kurulumu ekranının başlığı."
   },
-
   "scoreboardTitle": "Skor Tablosu",
   "@scoreboardTitle": {
     "description": "Skor tablosu ekranının başlığı."
   },
-
   "gameOverTitle": "Oyun Sonu",
   "@gameOverTitle": {
     "description": "Oyun sonu ekranının başlığı."
   },
-
   "settingsTitle": "Ayarlar",
   "@settingsTitle": {
     "description": "Ayarlar ekranının başlığı."
   },
-
   "notFoundTitle": "Sayfa bulunamadı",
   "@notFoundTitle": {
     "description": "Geçersiz bir adres açıldığında gösterilen başlık."
   },
-
   "notFoundMessage": "Aradığın sayfa yok ya da taşınmış. Ana sayfadan devam edebilirsin.",
   "@notFoundMessage": {
     "description": "Geçersiz adreste gösterilen açıklama; kullanıcıyı suçlamaz, çözüm söyler."
   },
-
   "goHomeButton": "Ana Sayfaya Dön",
   "@goHomeButton": {
     "description": "Ana sayfaya götüren buton."
+  },
+  "templateFree": "Serbest",
+  "@templateFree": {
+    "description": "Şablon adı: her oyun için genel skor tablosu."
+  },
+  "templateOkey": "Okey",
+  "@templateOkey": {
+    "description": "Şablon adı: klasik, puan düşmeli okey."
+  },
+  "templateOkey101": "101 Okey",
+  "@templateOkey101": {
+    "description": "Şablon adı."
+  },
+  "templateTavla": "Tavla",
+  "@templateTavla": {
+    "description": "Şablon adı."
+  },
+  "templatePisti": "Pişti",
+  "@templatePisti": {
+    "description": "Şablon adı."
+  },
+  "templateBatak": "Batak",
+  "@templateBatak": {
+    "description": "Şablon adı (İhaleli Batak dahil)."
+  },
+  "templateFreeDescription": "Her oyun için",
+  "@templateFreeDescription": {
+    "description": "Oyun seçimindeki tek satırlık açıklama."
+  },
+  "templateOkeyDescription": "20'den geriye",
+  "@templateOkeyDescription": {
+    "description": "Oyun seçimindeki tek satırlık açıklama."
+  },
+  "templateOkey101Description": "Düşük puan kazanır",
+  "@templateOkey101Description": {
+    "description": "Oyun seçimindeki tek satırlık açıklama."
+  },
+  "templateTavlaDescription": "Mars ve küp",
+  "@templateTavlaDescription": {
+    "description": "Oyun seçimindeki tek satırlık açıklama."
+  },
+  "templatePistiDescription": "Sayaçla puan",
+  "@templatePistiDescription": {
+    "description": "Oyun seçimindeki tek satırlık açıklama."
+  },
+  "templateBatakDescription": "Düz ya da ihaleli",
+  "@templateBatakDescription": {
+    "description": "Oyun seçimindeki tek satırlık açıklama."
+  },
+  "templatePairsTitle": "{template} · Eşli",
+  "@templatePairsTitle": {
+    "description": "Eşli oyunun başlığı.",
+    "placeholders": {
+      "template": {
+        "type": "String",
+        "example": "Pişti"
+      }
+    }
+  },
+  "homeOngoingTitle": "Devam Eden Oyunlar",
+  "@homeOngoingTitle": {
+    "description": "Ana sayfadaki bölüm başlığı."
+  },
+  "homeFinishedTitle": "Biten Oyunlar",
+  "@homeFinishedTitle": {
+    "description": "Ana sayfadaki bölüm başlığı."
+  },
+  "homeEmptyMessage": "Henüz oyun yok. Yeni oyun kurup masadaki puanları burada tutabilirsin.",
+  "@homeEmptyMessage": {
+    "description": "Hiç oyun yokken ana sayfadaki kısa metin."
+  },
+  "homeLoadError": "Oyunlar yüklenemedi. Uygulamayı kapatıp yeniden açmayı dene.",
+  "@homeLoadError": {
+    "description": "Oyun listesi okunamazsa gösterilir."
+  },
+  "homeRoundCount": "{count, plural, =0{Henüz el yok} other{{count} el}}",
+  "@homeRoundCount": {
+    "description": "Oynanan el sayısı.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeRoundsOfTotal": "{played}/{total} el",
+  "@homeRoundsOfTotal": {
+    "description": "El sayısıyla biten oyunda ilerleme.",
+    "placeholders": {
+      "played": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "homeWinner": "Kazanan: {names}",
+  "@homeWinner": {
+    "description": "Biten oyunun alt satırı.",
+    "placeholders": {
+      "names": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "homeUnreadableTitle": "Bu oyun açılamadı",
+  "@homeUnreadableTitle": {
+    "description": "Kaydı bozulan oyunun başlığı."
+  },
+  "homeUnreadableSubtitle": "Kayıt bozulmuş. Kaydırarak silebilirsin.",
+  "@homeUnreadableSubtitle": {
+    "description": "Kaydı bozulan oyun için çözüm."
+  },
+  "gameDeletedMessage": "{name} oyunu silindi",
+  "@gameDeletedMessage": {
+    "description": "Oyun silinince çıkan bildirim.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "101 Okey"
+      }
+    }
+  },
+  "undoButton": "Geri Al",
+  "@undoButton": {
+    "description": "Bildirimdeki geri alma düğmesi."
+  },
+  "deleteAction": "Sil",
+  "@deleteAction": {
+    "description": "Kaydırarak silme ve ekran okuyucu eylemi."
+  },
+  "timeJustNow": "Az önce",
+  "@timeJustNow": {
+    "description": "Bir dakikadan yeni."
+  },
+  "timeMinutesAgo": "{count} dk önce",
+  "@timeMinutesAgo": {
+    "description": "Bir saatten yeni.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{count} sa önce",
+  "@timeHoursAgo": {
+    "description": "Aynı gün, bir saatten eski.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "timeYesterday": "Dün",
+  "@timeYesterday": {
+    "description": "Bir önceki gün."
+  },
+  "teamNames": "{first} & {second}",
+  "@teamNames": {
+    "description": "Bir takımın iki oyuncusu.",
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "second": {
+        "type": "String"
+      }
+    }
+  },
+  "teamsVersus": "{first} – {second}",
+  "@teamsVersus": {
+    "description": "İki takım yan yana.",
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "second": {
+        "type": "String"
+      }
+    }
   }
 }
