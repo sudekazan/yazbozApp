@@ -12,6 +12,7 @@ import '../../domain/models/rule_set.dart';
 import '../../domain/rules/rules_registry.dart';
 import '../../domain/validation.dart';
 import '../../l10n/generated/app_localizations.dart';
+import '../common/bottom_action_bar.dart';
 import '../common/number_stepper.dart';
 import '../common/template_labels.dart';
 import 'setup_logic.dart';
@@ -397,7 +398,7 @@ class _GameSetupScreenState extends ConsumerState<GameSetupScreen> {
               ),
             ),
           ),
-          _BottomBar(
+          BottomActionBar(
             child: FilledButton(
               onPressed: _start,
               child: Text(l10n.startGameButton),
@@ -427,35 +428,6 @@ class _GameSetupScreenState extends ConsumerState<GameSetupScreen> {
       // İsimlerden biri geçersiz: hatalar alanların altında görünsün.
       setState(() => _submitted = true);
     }
-  }
-}
-
-class _BottomBar extends StatelessWidget {
-  const _BottomBar({required this.child});
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: scheme.surface,
-        border: Border(top: BorderSide(color: scheme.outlineVariant)),
-      ),
-      child: SafeArea(
-        top: false,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(
-            AppSpacing.screen,
-            AppSpacing.sm,
-            AppSpacing.screen,
-            AppSpacing.sm,
-          ),
-          child: SizedBox(width: double.infinity, child: child),
-        ),
-      ),
-    );
   }
 }
 
