@@ -19,7 +19,7 @@ Tarih: 2026-11-08. Kapsam: ekranların tamamı bitmiş hali (ana sayfa, oyun se�
 
 ### Bulgular
 
-1. **Android otomatik yedekleme açık olabilir (karar bekliyor).** Manifestte `android:allowBackup` yazılmamış; Android'de varsayılanı açık. Açıkken oyun verileri Google yedeğine gidebilir. Uygulamanın vaadi "tüm veriler cihazda kalır". Kapatmak (`allowBackup="false"`) vaadi sıkılaştırır ama telefon değişince oyun geçmişi yedekten gelmez. **Bunu ben seçmedim; senin kararın.**
+1. **Android otomatik yedekleme (kapatıldı, 2026-11-08).** `android:allowBackup` yazılmamıştı; Android'de varsayılanı açık olduğu için oyun verileri Google yedeğine gidebilirdi. Uygulamanın vaadi "tüm veriler cihazda kalır" olduğundan Sude'nin kararıyla `allowBackup="false"` yapıldı. Sonucu: telefon değişince oyun geçmişi yedekten gelmez.
 2. **`WAKE_LOCK` izni.** `wakelock_plus` Android manifestine `WAKE_LOCK` ekleyebilir. Bu zararsız bir izin ve `INTERNET` kuralını bozmaz, ama `scripts/check_release_permissions.sh` yasak listesinde olmayan her izni görmek için çıktısına bakılmalı.
 
 ### Kontrol edilmeyenler

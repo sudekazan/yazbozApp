@@ -2,6 +2,7 @@
     <application
         android:label="Yazboz"
         android:name="${applicationName}"
+        android:allowBackup="false"
         android:usesCleartextTraffic="false"
         android:icon="@mipmap/ic_launcher">
         <activity
