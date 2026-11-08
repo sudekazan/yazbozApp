@@ -63,6 +63,21 @@ abstract final class AppSizes {
 
   /// Lider sütununun ince çerçevesi.
   static const double leaderOutline = 1.5;
+
+  /// El girişindeki puan alanının genişliği.
+  static const double entryFieldWidth = 112;
+
+  /// Odaktaki giriş alanının çerçevesi.
+  static const double focusOutline = 2;
+
+  /// El girişi sayfası ekran yüksekliğinin bu kadarını kaplar.
+  static const double entrySheetHeightFactor = 0.92;
+}
+
+/// Saydamlık değerleri.
+abstract final class AppOpacity {
+  /// Pasif öğelerin yazı ve ikonları (Material 3).
+  static const double disabled = 0.38;
 }
 
 /// Animasyon süreleri. Hepsi 150-250 ms aralığında, sadece geçiş için.

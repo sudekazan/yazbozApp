@@ -880,5 +880,74 @@
   "ruleOff": "Kapalı",
   "@ruleOff": {
     "description": "Kurallarda kapalı ayar."
+  },
+  "roundEntryTitle": "{number}. el",
+  "@roundEntryTitle": {
+    "description": "El girişi sayfasının başlığı.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "closeTooltip": "Kapat",
+  "@closeTooltip": {
+    "description": "Sayfayı kaydetmeden kapatan ikon butonunun etiketi."
+  },
+  "keypadLabel": "Sayı tuşları",
+  "@keypadLabel": {
+    "description": "Numerik tuş takımının ekran okuyucu etiketi."
+  },
+  "keypadBackspace": "Son rakamı sil",
+  "@keypadBackspace": {
+    "description": "Silme tuşunun etiketi; uzun basınca alan temizlenir."
+  },
+  "keypadMinus": "Eksi",
+  "@keypadMinus": {
+    "description": "Eksi işareti tuşunun ekran okuyucu etiketi."
+  },
+  "keypadPrevious": "Önceki oyuncuya geç",
+  "@keypadPrevious": {
+    "description": "Yukarı ok tuşunun etiketi."
+  },
+  "keypadNext": "Sonraki oyuncuya geç",
+  "@keypadNext": {
+    "description": "Aşağı ok tuşunun etiketi."
+  },
+  "pointsFieldSemantics": "{name}, bu el {points}, yeni toplam {total}",
+  "@pointsFieldSemantics": {
+    "description": "El girişindeki oyuncu satırının ekran okuyucu etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "points": {
+        "type": "String",
+        "example": "12"
+      },
+      "total": {
+        "type": "String",
+        "example": "54"
+      }
+    }
+  },
+  "newTotalPreview": "Yeni toplam {total}",
+  "@newTotalPreview": {
+    "description": "El girişinde kaydetmeden önce görünen toplam.",
+    "placeholders": {
+      "total": {
+        "type": "String",
+        "example": "54"
+      }
+    }
+  },
+  "roundSaveError": "El kaydedilemedi. Puanları kontrol edip yeniden Kaydet'e dokun.",
+  "@roundSaveError": {
+    "description": "El kaydı başarısız olursa; çözüm söyler."
+  },
+  "editRoundHint": "eli düzenle",
+  "@editRoundHint": {
+    "description": "Ele dokununca ne olacağı (ekran okuyucu)."
   }
 }

@@ -11,6 +11,7 @@ import '../../data/repositories/game_models.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../common/bottom_action_bar.dart';
 import '../common/template_labels.dart';
+import '../round_entry/round_entry_sheet.dart';
 import 'scoreboard_dialogs.dart';
 import 'scoreboard_logic.dart';
 import 'scoreboard_table.dart';
@@ -129,8 +130,10 @@ class _ScoreboardState extends ConsumerState<_Scoreboard> {
                 child: Text(l10n.showResultButton),
               )
             : FilledButton.icon(
-                // El girişi ekranı eklenince bağlanacak.
-                onPressed: null,
+                // Diğer şablonların el girişi eklenene kadar pasif.
+                onPressed: hasRoundEntry(_game.config.template)
+                    ? _openEntry
+                    : null,
                 icon: const Icon(Icons.add),
                 label: Text(l10n.addRoundButton),
               ),
@@ -180,6 +183,9 @@ class _ScoreboardState extends ConsumerState<_Scoreboard> {
         final RoundScoreRow row => RoundTile(
           key: ValueKey('round-${row.roundId}'),
           row: row,
+          onTap: view.isReadOnly || !hasRoundEntry(_game.config.template)
+              ? null
+              : () => _openEntry(roundId: row.roundId),
           onDelete: view.isReadOnly ? null : () => _deleteRound(row),
         ),
         final SeatChangeRow row => SeatChangeNote(row: row),
@@ -248,6 +254,27 @@ class _ScoreboardState extends ConsumerState<_Scoreboard> {
   }
 
   // --------------------------------------------------------------- eylemler
+
+  /// El girişini açar; [roundId] verilirse o eli düzenler. Kayıt oyunu
+  /// bitirdiyse sonuç ekranına geçer.
+  Future<void> _openEntry({int? roundId}) async {
+    final repo = ref.read(gameRepositoryProvider);
+    final wasOver = _game.status.isFinished;
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    final saved = await showRoundEntrySheet(
+      context,
+      game: _game,
+      editing: roundId == null
+          ? null
+          : _game.rounds.firstWhere((r) => r.id == roundId),
+    );
+    if (!saved || wasOver) return;
+    final load = await repo.loadGame(_game.id);
+    if (!mounted) return;
+    if (load is GameLoaded && load.snapshot.status.isFinished) {
+      context.go(AppRoutes.gameOver(_game.id));
+    }
+  }
 
   Future<void> _undo() async {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();

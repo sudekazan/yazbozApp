@@ -280,6 +280,7 @@ class RoundTile extends StatelessWidget {
     return Semantics(
       label: label,
       onTap: onTap,
+      onTapHint: onTap == null ? null : l10n.editRoundHint,
       excludeSemantics: true,
       customSemanticsActions: {
         CustomSemanticsAction(label: l10n.deleteRoundButton): ?onDelete,

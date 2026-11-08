@@ -56,8 +56,7 @@ void main() {
       find.bySemanticsLabel(RegExp('^Mehmet, toplam 35, önde')),
       findsOneWidget,
     );
-    // El girişi ekranı gelene kadar buton pasif.
-    expect(tester.widget<FilledButton>(addRoundButton()).onPressed, isNull);
+    expect(tester.widget<FilledButton>(addRoundButton()).onPressed, isNotNull);
   });
 
   testApp('hiç el yokken açıklama görünür', (tester, db) async {
@@ -207,12 +206,14 @@ void main() {
       tester.getSemantics(find.bySemanticsLabel(RegExp('^Ayşe, toplam 1'))),
       isSemantics(isButton: true, hasTapAction: true),
     );
-    expect(
-      tester.getSemantics(find.bySemanticsLabel('1. el: Ayşe 1, Mehmet 2')),
-      isSemantics(
-        customActions: [const CustomSemanticsAction(label: 'Eli Sil')],
-      ),
-    );
+    final round = tester
+        .getSemantics(find.bySemanticsLabel('1. el: Ayşe 1, Mehmet 2'))
+        .getSemanticsData();
+    expect(round.hasAction(SemanticsAction.tap), isTrue);
+    expect([
+      for (final id in round.customSemanticsActionIds ?? <int>[])
+        CustomSemanticsAction.getAction(id)?.label,
+    ], contains('Eli Sil'));
     semantics.dispose();
   });
 
