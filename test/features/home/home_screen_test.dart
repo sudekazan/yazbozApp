@@ -72,7 +72,7 @@ void main() {
     await pumpApp(tester, db: db);
     await tester.tap(find.text('Serbest'));
     await tester.pumpAndSettle();
-    expect(find.text('Skor Tablosu'), findsOneWidget);
+    expect(find.text('El Ekle'), findsOneWidget);
   });
 
   testApp('kaydırarak silinen oyun "Geri Al" ile döner', (tester, db) async {

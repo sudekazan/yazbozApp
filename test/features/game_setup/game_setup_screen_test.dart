@@ -49,7 +49,7 @@ void main() {
       expect(find.byType(TextField), findsNWidgets(5)); // 4 isim + hedef
       await start(tester);
 
-      expect(find.text('Skor Tablosu'), findsOneWidget);
+      expect(find.text('El Ekle'), findsOneWidget);
       final game = await createdGame(db);
       expect(game.currentNames, [
         'Oyuncu 1',

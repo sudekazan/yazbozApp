@@ -51,6 +51,18 @@ abstract final class AppSizes {
 
   static const double icon = 24;
   static const double iconSmall = 16;
+
+  /// Skor tablosunda el numarasının durduğu sol sütun.
+  static const double roundNumberColumn = 32;
+
+  /// Skor tablosunda bir elin satır yüksekliği (en az).
+  static const double scoreRowMinHeight = 56;
+
+  /// Skor tablosundaki oyuncu değişikliği notunun yüksekliği (en az).
+  static const double seatNoteMinHeight = 40;
+
+  /// Lider sütununun ince çerçevesi.
+  static const double leaderOutline = 1.5;
 }
 
 /// Animasyon süreleri. Hepsi 150-250 ms aralığında, sadece geçiş için.

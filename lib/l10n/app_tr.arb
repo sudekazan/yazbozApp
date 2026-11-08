@@ -589,5 +589,296 @@
   "ruleZeroTricksPoints": "Hiç el alamayan",
   "@ruleZeroTricksPoints": {
     "description": "Kurallar bölümündeki alan adı."
+  },
+  "scoreboardRoundsLeft": "{count} el kaldı",
+  "@scoreboardRoundsLeft": {
+    "description": "El sayısıyla biten oyunda kalan el.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scoreboardTarget": "Hedef {target}",
+  "@scoreboardTarget": {
+    "description": "Hedefli oyunda başlığın altındaki bilgi.",
+    "placeholders": {
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "scoreboardFinished": "Oyun bitti",
+  "@scoreboardFinished": {
+    "description": "Kesin biten oyunun başlığının altındaki bilgi."
+  },
+  "scoreboardInfo": "{first} · {second}",
+  "@scoreboardInfo": {
+    "description": "Başlığın altındaki iki bilgiyi birleştirir.",
+    "placeholders": {
+      "first": {
+        "type": "String",
+        "example": "4/9 el"
+      },
+      "second": {
+        "type": "String",
+        "example": "5 el kaldı"
+      }
+    }
+  },
+  "undoTooltip": "Son işlemi geri al",
+  "@undoTooltip": {
+    "description": "Skor tablosundaki geri al ikon butonunun etiketi."
+  },
+  "gameMenuTooltip": "Oyun menüsü",
+  "@gameMenuTooltip": {
+    "description": "Skor tablosundaki menü ikon butonunun etiketi."
+  },
+  "menuShowRules": "Kuralları Gör",
+  "@menuShowRules": {
+    "description": "Oyun menüsü öğesi; kuralları salt okunur gösterir."
+  },
+  "menuDealerIndicator": "Dağıtıcıyı Göster",
+  "@menuDealerIndicator": {
+    "description": "Oyun menüsünde dağıtıcı göstergesini açıp kapatan öğe."
+  },
+  "menuRestart": "Yeniden Başlat",
+  "@menuRestart": {
+    "description": "Oyun menüsü öğesi; elleri siler, oyuncular kalır."
+  },
+  "menuFinishGame": "Oyunu Bitir",
+  "@menuFinishGame": {
+    "description": "Oyun menüsü öğesi ve onay diyaloğundaki buton."
+  },
+  "addRoundButton": "El Ekle",
+  "@addRoundButton": {
+    "description": "Skor tablosunun altındaki ana buton."
+  },
+  "showResultButton": "Sonucu Gör",
+  "@showResultButton": {
+    "description": "Oyun bitince El Ekle yerine çıkan buton."
+  },
+  "emptyRoundsMessage": "Henüz el yok. İlk elin puanlarını El Ekle ile gir.",
+  "@emptyRoundsMessage": {
+    "description": "Hiç el yokken tablonun yerinde görünür."
+  },
+  "seatChangeNote": "{round}. elden itibaren: {from} → {to}",
+  "@seatChangeNote": {
+    "description": "Tabloda oyuncu değişikliği notu.",
+    "placeholders": {
+      "round": {
+        "type": "int"
+      },
+      "from": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "to": {
+        "type": "String",
+        "example": "Mehmet"
+      }
+    }
+  },
+  "multiplierBadge": "x{multiplier}",
+  "@multiplierBadge": {
+    "description": "El çarpanı rozeti (101).",
+    "placeholders": {
+      "multiplier": {
+        "type": "int"
+      }
+    }
+  },
+  "roundSemantics": "{number}. el: {scores}",
+  "@roundSemantics": {
+    "description": "Bir elin ekran okuyucu etiketi.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "scores": {
+        "type": "String",
+        "example": "Ayşe 54, Mehmet −101"
+      }
+    }
+  },
+  "roundMultiplierSemantics": "{number}. el, {multiplier} kat: {scores}",
+  "@roundMultiplierSemantics": {
+    "description": "Çarpanlı elin ekran okuyucu etiketi.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "multiplier": {
+        "type": "int"
+      },
+      "scores": {
+        "type": "String",
+        "example": "Ayşe 54, Mehmet −101"
+      }
+    }
+  },
+  "nameAndPoints": "{name} {points}",
+  "@nameAndPoints": {
+    "description": "Ekran okuyucu için isim ve puan.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "points": {
+        "type": "String",
+        "example": "54"
+      }
+    }
+  },
+  "columnSemantics": "{name}, toplam {total}",
+  "@columnSemantics": {
+    "description": "Sütun başlığının ekran okuyucu etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "total": {
+        "type": "String",
+        "example": "76"
+      }
+    }
+  },
+  "leaderSemantics": "önde",
+  "@leaderSemantics": {
+    "description": "Lider sütunun ekran okuyucu eki."
+  },
+  "dealerSemantics": "{name} sıradaki eli dağıtacak",
+  "@dealerSemantics": {
+    "description": "Dağıtıcı sütunun ekran okuyucu eki.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "teamTotalSemantics": "{names}, takım toplamı {total}",
+  "@teamTotalSemantics": {
+    "description": "Takım toplamının ekran okuyucu etiketi.",
+    "placeholders": {
+      "names": {
+        "type": "String",
+        "example": "Ayşe & Zeynep"
+      },
+      "total": {
+        "type": "String",
+        "example": "62"
+      }
+    }
+  },
+  "playerOptionsHint": "oyuncu seçeneklerini aç",
+  "@playerOptionsHint": {
+    "description": "Sütun başlığına dokununca ne olacağı (ekran okuyucu)."
+  },
+  "replacePlayerButton": "Oyuncuyu Değiştir",
+  "@replacePlayerButton": {
+    "description": "Koltuğa yeni oyuncu oturtur."
+  },
+  "replacePlayerHelper": "{round}. elden itibaren geçerli. Puanlar bu sütunda sürer.",
+  "@replacePlayerHelper": {
+    "description": "Oyuncu değiştirme diyaloğundaki açıklama.",
+    "placeholders": {
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "renamePlayerButton": "İsmi Düzenle",
+  "@renamePlayerButton": {
+    "description": "Koltuktaki oyuncunun ismini düzeltir."
+  },
+  "renamePlayerHelper": "Sadece yazımı düzeltir; tabloda not kalmaz.",
+  "@renamePlayerHelper": {
+    "description": "İsim düzenleme diyaloğundaki açıklama."
+  },
+  "makeDealerButton": "Dağıtıcı Yap",
+  "@makeDealerButton": {
+    "description": "Sıradaki eli bu oyuncu dağıtsın."
+  },
+  "newPlayerNameLabel": "Yeni oyuncunun adı",
+  "@newPlayerNameLabel": {
+    "description": "Oyuncu değiştirme diyaloğundaki alanın etiketi."
+  },
+  "playerNameLabel": "Oyuncunun adı",
+  "@playerNameLabel": {
+    "description": "İsim düzenleme diyaloğundaki alanın etiketi."
+  },
+  "deleteRoundTitle": "{number}. el silinsin mi?",
+  "@deleteRoundTitle": {
+    "description": "El silme onayı başlığı.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteRoundMessage": "Bu elin puanları toplamdan düşülür.",
+  "@deleteRoundMessage": {
+    "description": "El silme onayı açıklaması."
+  },
+  "deleteRoundButton": "Eli Sil",
+  "@deleteRoundButton": {
+    "description": "El silme onayındaki buton ve ekran okuyucu eylemi."
+  },
+  "roundDeletedMessage": "{number}. el silindi",
+  "@roundDeletedMessage": {
+    "description": "El silinince çıkan bildirim.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "restartTitle": "Bu oyundaki {count} el silinsin mi?",
+  "@restartTitle": {
+    "description": "Yeniden başlatma onayı başlığı.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "restartMessage": "Oyuncular kalır, puanlar sıfırlanır. Bu işlem geri alınamaz.",
+  "@restartMessage": {
+    "description": "Yeniden başlatma onayı açıklaması."
+  },
+  "restartButton": "Elleri Sil",
+  "@restartButton": {
+    "description": "Yeniden başlatma onayındaki buton."
+  },
+  "finishTitle": "Oyun bitirilsin mi?",
+  "@finishTitle": {
+    "description": "Oyunu elle bitirme onayı başlığı."
+  },
+  "finishMessage": "Şu anki sıralamayla sonuç ekranı açılır. Bu oyuna artık el eklenemez.",
+  "@finishMessage": {
+    "description": "Oyunu elle bitirme onayı açıklaması."
+  },
+  "gameNotFoundMessage": "Bu oyun bulunamadı, silinmiş olabilir. Ana sayfadan başka bir oyun seçebilirsin.",
+  "@gameNotFoundMessage": {
+    "description": "Açılan oyun yoksa gösterilir."
+  },
+  "gameUnreadableMessage": "Bu oyun açılamadı, kaydı bozulmuş. Ana sayfada kaydırarak silebilirsin.",
+  "@gameUnreadableMessage": {
+    "description": "Oyun kaydı okunamazsa gösterilir."
+  },
+  "ruleNone": "Yok",
+  "@ruleNone": {
+    "description": "Kurallarda boş değer (ör. hedef yok)."
+  },
+  "ruleOn": "Açık",
+  "@ruleOn": {
+    "description": "Kurallarda açık ayar."
+  },
+  "ruleOff": "Kapalı",
+  "@ruleOff": {
+    "description": "Kurallarda kapalı ayar."
   }
 }
