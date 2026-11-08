@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/theme/app_dimensions.dart';
 import '../../core/theme/app_typography.dart';
 import '../../l10n/generated/app_localizations.dart';
+import '../common/haptics.dart';
 
 /// Sistem klavyesi yerine büyük numerik tuş takımı:
 ///
@@ -102,7 +104,7 @@ class NumberKeypad extends StatelessWidget {
   }
 }
 
-class _Key extends StatelessWidget {
+class _Key extends ConsumerWidget {
   const _Key.text(
     String this.text, {
     required this.onTap,
@@ -127,10 +129,16 @@ class _Key extends StatelessWidget {
   final int flex;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     final enabled = onTap != null;
+    final tap = onTap == null
+        ? null
+        : () {
+            ref.lightHaptic();
+            onTap!();
+          };
     final color = enabled
         ? scheme.onSurface
         : scheme.onSurface.withValues(alpha: AppOpacity.disabled);
@@ -158,7 +166,7 @@ class _Key extends StatelessWidget {
       color: scheme.surfaceContainerHigh,
       borderRadius: BorderRadius.circular(AppRadius.sm),
       clipBehavior: Clip.antiAlias,
-      child: InkWell(onTap: onTap, onLongPress: onLongPress, child: child),
+      child: InkWell(onTap: tap, onLongPress: onLongPress, child: child),
     );
     if (icon != null) child = Tooltip(message: label, child: child);
 
@@ -169,7 +177,7 @@ class _Key extends StatelessWidget {
         enabled: enabled,
         label: label ?? text,
         excludeSemantics: true,
-        onTap: onTap,
+        onTap: tap,
         child: child,
       ),
     );

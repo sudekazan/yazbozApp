@@ -2,6 +2,7 @@ import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yazboz/app.dart';
 import 'package:yazboz/app/providers.dart';
@@ -36,6 +37,7 @@ Future<void> pumpApp(
   String location = AppRoutes.home,
   Size size = const Size(390, 844),
   double textScale = 1,
+  List<Override> overrides = const [],
 }) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
@@ -45,7 +47,7 @@ Future<void> pumpApp(
   addTearDown(router.dispose);
   await tester.pumpWidget(
     ProviderScope(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [appDatabaseProvider.overrideWithValue(db), ...overrides],
       child: Builder(
         builder: (context) => MediaQuery(
           data: MediaQuery.of(context)

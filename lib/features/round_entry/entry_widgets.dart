@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/theme/app_dimensions.dart';
 import '../../core/theme/app_typography.dart';
 import '../../l10n/generated/app_localizations.dart';
+import '../common/haptics.dart';
 import '../common/score_format.dart';
 
 /// Seçilebilir düğme: seçiliyken vurgu zemini ve tik ikonu. Tek seçimli
 /// gruplarda [exclusive] açık olur (ekran okuyucu "radyo düğmesi" der).
-class ChoiceTile extends StatelessWidget {
+class ChoiceTile extends ConsumerWidget {
   const ChoiceTile({
     required this.label,
     required this.selected,
@@ -26,7 +28,7 @@ class ChoiceTile extends StatelessWidget {
   final VoidCallback? onTap;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     final ink = selected ? scheme.onPrimaryContainer : scheme.onSurface;
@@ -46,7 +48,12 @@ class ChoiceTile extends StatelessWidget {
         ),
         clipBehavior: Clip.antiAlias,
         child: InkWell(
-          onTap: onTap,
+          onTap: onTap == null
+              ? null
+              : () {
+                  ref.lightHaptic();
+                  onTap!();
+                },
           child: ConstrainedBox(
             constraints: const BoxConstraints(
               minHeight: AppSizes.minTouchTarget,

@@ -7,6 +7,7 @@ import '../../data/repositories/game_models.dart';
 import '../../domain/models/round.dart';
 import '../../domain/validation.dart';
 import '../../l10n/generated/app_localizations.dart';
+import '../common/haptics.dart';
 import '../common/template_labels.dart';
 import 'entry_widgets.dart';
 
@@ -115,7 +116,9 @@ abstract class RoundFormState<W extends RoundForm> extends ConsumerState<W> {
       }
       return;
     }
-    if (mounted) Navigator.of(context).pop(true);
+    if (!mounted) return;
+    ref.confirmHaptic();
+    Navigator.of(context).pop(true);
   }
 
   @override

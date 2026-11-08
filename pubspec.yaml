@@ -18,6 +18,7 @@ dependencies:
   go_router: ^18.1.1
   intl: any
   riverpod_annotation: ^4.0.7
+  wakelock_plus: ^1.8.2
 
 dev_dependencies:
   flutter_test:

@@ -11,6 +11,7 @@ import '../../data/repositories/game_models.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../common/bottom_action_bar.dart';
 import '../common/game_problem.dart';
+import '../common/keep_awake.dart';
 import '../common/template_labels.dart';
 import '../round_entry/round_entry_sheet.dart';
 import 'scoreboard_dialogs.dart';
@@ -27,7 +28,9 @@ class ScoreboardScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     return switch (ref.watch(gameByIdProvider(gameId))) {
-      AsyncData(value: GameLoaded(:final snapshot)) => _Scoreboard(snapshot),
+      AsyncData(value: GameLoaded(:final snapshot)) => KeepAwake(
+        child: _Scoreboard(snapshot),
+      ),
       AsyncData(value: GameNotFound()) => GameProblem(
         title: l10n.scoreboardTitle,
         message: l10n.gameNotFoundMessage,
