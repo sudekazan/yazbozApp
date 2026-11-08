@@ -48,3 +48,7 @@ String playersLine(AppLocalizations l10n, List<String> names, PlayMode mode) {
   }
   return names.join(', ');
 }
+
+/// Sütun adı: tek oyuncu ya da takımsa "Ayşe & Zeynep".
+String columnName(AppLocalizations l10n, List<String> names) =>
+    names.length == 2 ? l10n.teamNames(names[0], names[1]) : names.join(', ');

@@ -130,10 +130,7 @@ class _ScoreboardState extends ConsumerState<_Scoreboard> {
                 child: Text(l10n.showResultButton),
               )
             : FilledButton.icon(
-                // Diğer şablonların el girişi eklenene kadar pasif.
-                onPressed: hasRoundEntry(_game.config.template)
-                    ? _openEntry
-                    : null,
+                onPressed: _openEntry,
                 icon: const Icon(Icons.add),
                 label: Text(l10n.addRoundButton),
               ),
@@ -183,7 +180,7 @@ class _ScoreboardState extends ConsumerState<_Scoreboard> {
         final RoundScoreRow row => RoundTile(
           key: ValueKey('round-${row.roundId}'),
           row: row,
-          onTap: view.isReadOnly || !hasRoundEntry(_game.config.template)
+          onTap: view.isReadOnly
               ? null
               : () => _openEntry(roundId: row.roundId),
           onDelete: view.isReadOnly ? null : () => _deleteRound(row),

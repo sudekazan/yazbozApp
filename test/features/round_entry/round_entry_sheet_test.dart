@@ -6,7 +6,6 @@ import 'package:yazboz/data/repositories/game_models.dart';
 import 'package:yazboz/data/repositories/game_repository.dart';
 import 'package:yazboz/domain/models/game_config.dart';
 import 'package:yazboz/domain/rules/free_rules.dart';
-import 'package:yazboz/domain/rules/okey_rules.dart';
 
 import '../../helpers.dart';
 
@@ -145,19 +144,6 @@ void main() {
     await press(tester, '60');
     await save(tester);
     expect(find.text('Oyun Sonu'), findsOneWidget);
-  });
-
-  testApp('el girişi henüz olmayan oyunda "El Ekle" pasif', (tester, db) async {
-    final id = await GameRepository(db).createGame(
-      config: const GameConfig(template: GameTemplate.okey, seatCount: 4),
-      rules: const OkeyRuleSet(),
-      playerNames: const ['A', 'B', 'C', 'D'],
-    );
-    await pumpApp(tester, db: db, location: AppRoutes.game(id));
-    final button = tester.widget<FilledButton>(
-      find.widgetWithText(FilledButton, 'El Ekle'),
-    );
-    expect(button.onPressed, isNull);
   });
 
   for (final dark in [false, true]) {

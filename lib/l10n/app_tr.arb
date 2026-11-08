@@ -949,5 +949,497 @@
   "editRoundHint": "eli düzenle",
   "@editRoundHint": {
     "description": "Ele dokununca ne olacağı (ekran okuyucu)."
+  },
+  "errorTricksTotal": "Toplam el sayısı {expected} olmalı, şu an {actual}.",
+  "@errorTricksTotal": {
+    "description": "Batak: el sayıları toplamı tutmuyor.",
+    "placeholders": {
+      "expected": {
+        "type": "int"
+      },
+      "actual": {
+        "type": "int"
+      }
+    }
+  },
+  "errorBidderRequired": "İhaleyi alanı seç.",
+  "@errorBidderRequired": {
+    "description": "Batak: ihaleyi alan seçilmedi."
+  },
+  "errorClubTwoRequired": "Sinek 2'yi alanı seç.",
+  "@errorClubTwoRequired": {
+    "description": "Pişti: Sinek 2 sahibi seçilmedi."
+  },
+  "errorDiamondTenRequired": "Karo 10'u alanı seç.",
+  "@errorDiamondTenRequired": {
+    "description": "Pişti: Karo 10 sahibi seçilmedi."
+  },
+  "errorAcesOverLimit": "Destede 4 as var, şu an toplam {actual}. Birinin sayısını azalt.",
+  "@errorAcesOverLimit": {
+    "description": "Pişti: as toplamı 4'ü geçiyor.",
+    "placeholders": {
+      "actual": {
+        "type": "int"
+      }
+    }
+  },
+  "errorJacksOverLimit": "Destede 4 vale var, şu an toplam {actual}. Birinin sayısını azalt.",
+  "@errorJacksOverLimit": {
+    "description": "Pişti: vale toplamı 4'ü geçiyor.",
+    "placeholders": {
+      "actual": {
+        "type": "int"
+      }
+    }
+  },
+  "errorFinisherRequired": "Bitiş biçimi için önce bitireni seç.",
+  "@errorFinisherRequired": {
+    "description": "Bitiren seçilmeden bitiş biçimi seçildi."
+  },
+  "errorPointsTooLarge": "Bir puan en fazla {max} olabilir; büyük sayıyı küçült.",
+  "@errorPointsTooLarge": {
+    "description": "Puan sınırı aşıldı.",
+    "placeholders": {
+      "max": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "errorWinnerRequired": "Eli kazananı seç.",
+  "@errorWinnerRequired": {
+    "description": "Tavla: kazanan seçilmedi."
+  },
+  "errorFinisherOrNobody": "Eli bitireni seç; kimse bitiremediyse \"Kimse bitiremedi\"yi seç.",
+  "@errorFinisherOrNobody": {
+    "description": "Okey/101: bitiren seçilmedi."
+  },
+  "errorMajorityRequired": "Kart çoğunluğunu alanı seç; kartlar eşitse \"Eşit\"i seç.",
+  "@errorMajorityRequired": {
+    "description": "Pişti: kart çoğunluğu seçilmedi."
+  },
+  "errorPenaltyPlayer": "Cezanın kime yazılacağını seç.",
+  "@errorPenaltyPlayer": {
+    "description": "Ceza diyaloğu: oyuncu seçilmedi."
+  },
+  "errorPenaltyKind": "Ceza türünü seç.",
+  "@errorPenaltyKind": {
+    "description": "Ceza diyaloğu: tür seçilmedi."
+  },
+  "errorPenaltyAmount": "Ceza tutarı 1 ile {max} arasında olmalı.",
+  "@errorPenaltyAmount": {
+    "description": "Ceza diyaloğu: tutar geçersiz.",
+    "placeholders": {
+      "max": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "previewTitle": "Bu elin puanları",
+  "@previewTitle": {
+    "description": "El girişinde puan önizlemesinin başlığı."
+  },
+  "previewIncomplete": "Bu elin puanları, seçimler tamamlanınca görünür",
+  "@previewIncomplete": {
+    "description": "Önizleme eksikken ekran okuyucu etiketi."
+  },
+  "whoWonLabel": "Kim kazandı?",
+  "@whoWonLabel": {
+    "description": "Tavla: kazanan seçiminin etiketi."
+  },
+  "howWonLabel": "Nasıl kazandı?",
+  "@howWonLabel": {
+    "description": "Tavla: Normal/Mars seçiminin etiketi."
+  },
+  "tavlaNormal": "Normal",
+  "@tavlaNormal": {
+    "description": "Tavla: normal galibiyet."
+  },
+  "tavlaMars": "Mars",
+  "@tavlaMars": {
+    "description": "Tavla: mars galibiyet."
+  },
+  "whoFinishedLabel": "Kim bitirdi?",
+  "@whoFinishedLabel": {
+    "description": "Okey/101: bitiren seçiminin etiketi."
+  },
+  "nobodyFinished": "Kimse bitiremedi",
+  "@nobodyFinished": {
+    "description": "Okey/101: kimse bitiremedi seçeneği."
+  },
+  "howFinishedLabel": "Nasıl bitti?",
+  "@howFinishedLabel": {
+    "description": "Bitiş türü seçiminin etiketi."
+  },
+  "okeyFinishNormal": "Normal",
+  "@okeyFinishNormal": {
+    "description": "Okey: normal bitiş."
+  },
+  "indicatorShownLabel": "Gösterge gösteren",
+  "@indicatorShownLabel": {
+    "description": "Okey: göstergeyi gösterenler."
+  },
+  "indicatorShownHint": "diğerlerinden {points}",
+  "@indicatorShownHint": {
+    "description": "Okey: göstergenin diğerlerine etkisi.",
+    "placeholders": {
+      "points": {
+        "type": "String",
+        "example": "−1"
+      }
+    }
+  },
+  "multipliersHint": "çarpanlar birbiriyle çarpılır",
+  "@multipliersHint": {
+    "description": "101: bitiş çarpanları açıklaması."
+  },
+  "okey101WithOkey": "Okeyle ×{multiplier}",
+  "@okey101WithOkey": {
+    "description": "101: okeyle bitiş seçeneği.",
+    "placeholders": {
+      "multiplier": {
+        "type": "int"
+      }
+    }
+  },
+  "okey101FromHand": "Elden ×{multiplier}",
+  "@okey101FromHand": {
+    "description": "101: elden bitiş seçeneği.",
+    "placeholders": {
+      "multiplier": {
+        "type": "int"
+      }
+    }
+  },
+  "okey101FromPairs": "Çiftten ×{multiplier}",
+  "@okey101FromPairs": {
+    "description": "101: çiftten bitiş seçeneği.",
+    "placeholders": {
+      "multiplier": {
+        "type": "int"
+      }
+    }
+  },
+  "remainingTilesLabel": "Kalan taşlar",
+  "@remainingTilesLabel": {
+    "description": "101: oyuncu satırlarının başlığı."
+  },
+  "playerFinished": "Bitirdi",
+  "@playerFinished": {
+    "description": "101: eli bitiren oyuncunun satırı."
+  },
+  "partnerFinished": "Eşi bitirdi, 0 yazar",
+  "@partnerFinished": {
+    "description": "101 eşli: bitirenin eşi."
+  },
+  "openedPairsChip": "Çift",
+  "@openedPairsChip": {
+    "description": "101: çiftten açan oyuncu seçimi."
+  },
+  "openedPairsTooltip": "{name} çiftten açtı",
+  "@openedPairsTooltip": {
+    "description": "101: Çift seçiminin açıklaması.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "notOpenedChip": "Açamadı",
+  "@notOpenedChip": {
+    "description": "101: hiç açamayan oyuncu seçimi."
+  },
+  "notOpenedTooltip": "{name} açamadı",
+  "@notOpenedTooltip": {
+    "description": "101: Açamadı seçiminin açıklaması.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "remainingFieldSemantics": "{name} kalan taş toplamı, {value}",
+  "@remainingFieldSemantics": {
+    "description": "101: kalan taş alanının ekran okuyucu etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "value": {
+        "type": "String",
+        "example": "38"
+      }
+    }
+  },
+  "roundPointsSemantics": "bu el {points}",
+  "@roundPointsSemantics": {
+    "description": "Oyuncunun bu eldeki puanı (ekran okuyucu).",
+    "placeholders": {
+      "points": {
+        "type": "String",
+        "example": "38"
+      }
+    }
+  },
+  "penaltiesLabel": "Cezalar",
+  "@penaltiesLabel": {
+    "description": "101: ceza bölümü."
+  },
+  "penaltiesHint": "elden ayrı, çarpansız",
+  "@penaltiesHint": {
+    "description": "101: cezaların nasıl işlediği."
+  },
+  "penaltyChip": "{name} · {kind} +{amount}",
+  "@penaltyChip": {
+    "description": "101: eklenen ceza.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Zeynep"
+      },
+      "kind": {
+        "type": "String",
+        "example": "İşler taş atma"
+      },
+      "amount": {
+        "type": "String",
+        "example": "101"
+      }
+    }
+  },
+  "removePenalty": "Cezayı kaldır",
+  "@removePenalty": {
+    "description": "101: ceza silme düğmesinin etiketi."
+  },
+  "addPenaltyButton": "Ceza Ekle",
+  "@addPenaltyButton": {
+    "description": "101: ceza ekleme düğmesi ve diyalog başlığı."
+  },
+  "penaltyTileToMeld": "İşler taş atma",
+  "@penaltyTileToMeld": {
+    "description": "101 ceza türü."
+  },
+  "penaltyDiscardOkey": "Okey atma",
+  "@penaltyDiscardOkey": {
+    "description": "101 ceza türü."
+  },
+  "penaltyWrongOpen": "Yanlış açma",
+  "@penaltyWrongOpen": {
+    "description": "101 ceza türü."
+  },
+  "penaltyCustom": "Diğer",
+  "@penaltyCustom": {
+    "description": "101 ceza türü; tutar girilir."
+  },
+  "penaltyWhoLabel": "Kime?",
+  "@penaltyWhoLabel": {
+    "description": "Ceza diyaloğunda oyuncu seçimi."
+  },
+  "penaltyKindLabel": "Ceza",
+  "@penaltyKindLabel": {
+    "description": "Ceza diyaloğunda tür seçimi."
+  },
+  "penaltyAmountLabel": "Ceza tutarı",
+  "@penaltyAmountLabel": {
+    "description": "Ceza diyaloğunda tutar alanı."
+  },
+  "pistiCountMode": "Sayaçla",
+  "@pistiCountMode": {
+    "description": "Pişti: sayaçla giriş."
+  },
+  "pistiDirectMode": "Doğrudan puan",
+  "@pistiDirectMode": {
+    "description": "Pişti: doğrudan puan girişi."
+  },
+  "pistiAces": "As",
+  "@pistiAces": {
+    "description": "Pişti: as sayacı."
+  },
+  "pistiJacks": "Vale",
+  "@pistiJacks": {
+    "description": "Pişti: vale sayacı."
+  },
+  "perItem": "her biri {points}",
+  "@perItem": {
+    "description": "Pişti: sayacın puanı.",
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "perItemOfFour": "her biri {points}, toplam 4",
+  "@perItemOfFour": {
+    "description": "Pişti: as/vale sayacının puanı.",
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "directPointsSemantics": "{name} puanı, {value}",
+  "@directPointsSemantics": {
+    "description": "Pişti doğrudan puan alanı (ekran okuyucu).",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "value": {
+        "type": "String",
+        "example": "21"
+      }
+    }
+  },
+  "counterDecrease": "{name}: {counter} azalt",
+  "@counterDecrease": {
+    "description": "Sayaç azaltma etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "counter": {
+        "type": "String",
+        "example": "Pişti"
+      }
+    }
+  },
+  "counterIncrease": "{name}: {counter} artır",
+  "@counterIncrease": {
+    "description": "Sayaç artırma etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "counter": {
+        "type": "String",
+        "example": "Pişti"
+      }
+    }
+  },
+  "majorityTie": "Eşit",
+  "@majorityTie": {
+    "description": "Pişti: kart sayıları eşit."
+  },
+  "bidderLabel": "İhaleyi alan",
+  "@bidderLabel": {
+    "description": "Batak: ihaleyi alan seçimi."
+  },
+  "bidLabel": "İhale",
+  "@bidLabel": {
+    "description": "Batak: ihale miktarı."
+  },
+  "bidRange": "{min}–{max}",
+  "@bidRange": {
+    "description": "Batak: ihale aralığı.",
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "decreaseBid": "İhaleyi azalt",
+  "@decreaseBid": {
+    "description": "Batak: ihale azaltma etiketi."
+  },
+  "increaseBid": "İhaleyi artır",
+  "@increaseBid": {
+    "description": "Batak: ihale artırma etiketi."
+  },
+  "trumpLabel": "Koz",
+  "@trumpLabel": {
+    "description": "Batak: koz seçimi."
+  },
+  "optionalHint": "isteğe bağlı",
+  "@optionalHint": {
+    "description": "İsteğe bağlı alan açıklaması."
+  },
+  "suitClubs": "Sinek",
+  "@suitClubs": {
+    "description": "Kart rengi."
+  },
+  "suitDiamonds": "Karo",
+  "@suitDiamonds": {
+    "description": "Kart rengi."
+  },
+  "suitHearts": "Kupa",
+  "@suitHearts": {
+    "description": "Kart rengi."
+  },
+  "suitSpades": "Maça",
+  "@suitSpades": {
+    "description": "Kart rengi."
+  },
+  "tricksLabel": "Alınan eller",
+  "@tricksLabel": {
+    "description": "Batak: el sayıları bölümü."
+  },
+  "tricksTotalHint": "toplam {total}",
+  "@tricksTotalHint": {
+    "description": "Batak: bir dağıtımdaki el sayısı.",
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "bidMade": "İhale {bid} · tuttu",
+  "@bidMade": {
+    "description": "Batak: ihaleyi alan tutturdu.",
+    "placeholders": {
+      "bid": {
+        "type": "int"
+      }
+    }
+  },
+  "bidFailed": "İhale {bid} · battı",
+  "@bidFailed": {
+    "description": "Batak: ihaleyi alan batırdı.",
+    "placeholders": {
+      "bid": {
+        "type": "int"
+      }
+    }
+  },
+  "decreaseTricks": "{name} el sayısını azalt",
+  "@decreaseTricks": {
+    "description": "Batak: el sayısı azaltma etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "increaseTricks": "{name} el sayısını artır",
+  "@increaseTricks": {
+    "description": "Batak: el sayısı artırma etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "okeyFinishOkey": "Okey atarak",
+  "@okeyFinishOkey": {
+    "description": "Okey: el girişindeki bitiş türü."
+  },
+  "okeyFinishPairs": "Çifte",
+  "@okeyFinishPairs": {
+    "description": "Okey: el girişindeki bitiş türü."
+  },
+  "okeyFinishOkeyPairs": "Okey atarak çifte",
+  "@okeyFinishOkeyPairs": {
+    "description": "Okey: el girişindeki bitiş türü."
   }
 }

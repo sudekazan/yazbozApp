@@ -67,6 +67,9 @@ abstract final class AppSizes {
   /// El girişindeki puan alanının genişliği.
   static const double entryFieldWidth = 112;
 
+  /// El girişinde oyuncunun bu eldeki puanının durduğu sütun.
+  static const double entryPointsWidth = 56;
+
   /// Odaktaki giriş alanının çerçevesi.
   static const double focusOutline = 2;
 

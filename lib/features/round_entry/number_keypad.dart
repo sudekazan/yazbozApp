@@ -15,7 +15,7 @@ import '../../l10n/generated/app_localizations.dart';
 class NumberKeypad extends StatelessWidget {
   const NumberKeypad({
     required this.onDigit,
-    required this.onMinus,
+    this.onMinus,
     required this.onBackspace,
     required this.onClear,
     this.onPrevious,
@@ -24,7 +24,9 @@ class NumberKeypad extends StatelessWidget {
   });
 
   final ValueChanged<int> onDigit;
-  final VoidCallback onMinus;
+
+  /// Eksi girilemeyen alanlarda `null` (tuş pasif).
+  final VoidCallback? onMinus;
   final VoidCallback onBackspace;
 
   /// Silme tuşuna uzun basınca alanı temizler.

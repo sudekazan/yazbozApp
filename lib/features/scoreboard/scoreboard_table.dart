@@ -5,11 +5,8 @@ import '../../core/theme/app_dimensions.dart';
 import '../../core/theme/app_typography.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../common/score_format.dart';
+import '../common/template_labels.dart';
 import 'scoreboard_logic.dart';
-
-/// Sütun başlığındaki isim: tek oyuncu ya da "Ayşe & Zeynep".
-String columnName(AppLocalizations l10n, List<String> names) =>
-    names.length == 2 ? l10n.teamNames(names[0], names[1]) : names.join(', ');
 
 /// Üstte sabit duran başlık: isimler, büyük toplamlar, lider ve dağıtıcı.
 class ScoreHeader extends StatelessWidget {
