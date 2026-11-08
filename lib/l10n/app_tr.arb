@@ -1441,5 +1441,69 @@
   "okeyFinishOkeyPairs": "Okey atarak çifte",
   "@okeyFinishOkeyPairs": {
     "description": "Okey: el girişindeki bitiş türü."
+  },
+  "gameOverWinner": "Kazanan",
+  "@gameOverWinner": {
+    "description": "Oyun sonunda kazanan isminin üstündeki etiket."
+  },
+  "gameOverWinners": "Kazananlar",
+  "@gameOverWinners": {
+    "description": "Berabere biten oyunda kazananların üstündeki etiket."
+  },
+  "pointsCount": "{points} puan",
+  "@pointsCount": {
+    "description": "Puan miktarı.",
+    "placeholders": {
+      "points": {
+        "type": "String",
+        "example": "148"
+      }
+    }
+  },
+  "finalRankingTitle": "Final sıralaması",
+  "@finalRankingTitle": {
+    "description": "Oyun sonundaki sıralama başlığı."
+  },
+  "replacedNote": "{round}. elden itibaren {name} yerine",
+  "@replacedNote": {
+    "description": "Oyun sonunda oyuncu değişikliği notu.",
+    "placeholders": {
+      "round": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String",
+        "example": "Can"
+      }
+    }
+  },
+  "rematchButton": "Rövanş Yap",
+  "@rematchButton": {
+    "description": "Aynı oyuncu ve ayarlarla yeni oyun açar."
+  },
+  "gameNotOverMessage": "Bu oyun henüz bitmedi. Tabloya dönüp ellere devam edebilirsin.",
+  "@gameNotOverMessage": {
+    "description": "Bitmemiş oyunun sonuç ekranı açılırsa."
+  },
+  "backToTableButton": "Tabloya Dön",
+  "@backToTableButton": {
+    "description": "Skor tablosuna götüren buton."
+  },
+  "rankSemantics": "{rank}. {name}, {points} puan",
+  "@rankSemantics": {
+    "description": "Final sıralaması satırının ekran okuyucu etiketi.",
+    "placeholders": {
+      "rank": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String",
+        "example": "Zeynep"
+      },
+      "points": {
+        "type": "String",
+        "example": "148"
+      }
+    }
   }
 }

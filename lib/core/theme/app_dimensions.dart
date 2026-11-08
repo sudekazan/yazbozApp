@@ -70,6 +70,10 @@ abstract final class AppSizes {
   /// El girişinde oyuncunun bu eldeki puanının durduğu sütun.
   static const double entryPointsWidth = 56;
 
+  /// Oyun sonundaki kupa rozeti ve içindeki ikon.
+  static const double winnerBadge = 64;
+  static const double winnerIcon = 32;
+
   /// Odaktaki giriş alanının çerçevesi.
   static const double focusOutline = 2;
 

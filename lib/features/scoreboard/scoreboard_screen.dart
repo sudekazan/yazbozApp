@@ -10,6 +10,7 @@ import '../../core/theme/app_dimensions.dart';
 import '../../data/repositories/game_models.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../common/bottom_action_bar.dart';
+import '../common/game_problem.dart';
 import '../common/template_labels.dart';
 import '../round_entry/round_entry_sheet.dart';
 import 'scoreboard_dialogs.dart';
@@ -27,41 +28,17 @@ class ScoreboardScreen extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     return switch (ref.watch(gameByIdProvider(gameId))) {
       AsyncData(value: GameLoaded(:final snapshot)) => _Scoreboard(snapshot),
-      AsyncData(value: GameNotFound()) => _Problem(l10n.gameNotFoundMessage),
-      AsyncData(value: GameUnreadable()) ||
-      AsyncError() => _Problem(l10n.gameUnreadableMessage),
+      AsyncData(value: GameNotFound()) => GameProblem(
+        title: l10n.scoreboardTitle,
+        message: l10n.gameNotFoundMessage,
+      ),
+      AsyncData(value: GameUnreadable()) || AsyncError() => GameProblem(
+        title: l10n.scoreboardTitle,
+        message: l10n.gameUnreadableMessage,
+      ),
       // 100 ms'den kısa sürdüğü için yükleme göstergesi yok.
       _ => Scaffold(appBar: AppBar()),
     };
-  }
-}
-
-/// Oyun açılamadığında: kullanıcıyı suçlamayan açıklama ve çıkış yolu.
-class _Problem extends StatelessWidget {
-  const _Problem(this.message);
-
-  final String message;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final theme = Theme.of(context);
-    return Scaffold(
-      appBar: AppBar(title: Text(l10n.scoreboardTitle)),
-      body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(AppSpacing.screen),
-          children: [
-            Text(message, style: theme.textTheme.bodyLarge),
-            const SizedBox(height: AppSpacing.lg),
-            FilledButton(
-              onPressed: () => context.go(AppRoutes.home),
-              child: Text(l10n.goHomeButton),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 }
 
