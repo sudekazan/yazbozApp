@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yazboz/core/router/app_router.dart';
@@ -7,6 +9,7 @@ import 'package:yazboz/data/repositories/game_repository.dart';
 import 'package:yazboz/domain/models/game_config.dart';
 import 'package:yazboz/domain/rules/free_rules.dart';
 import 'package:yazboz/domain/rules/okey101_rules.dart';
+import 'package:yazboz/features/game_over/share_table.dart';
 
 import '../../helpers.dart';
 
@@ -171,5 +174,75 @@ void main() {
         .addRound(id, const FreeRoundInput([99999, 1, 2, 3, 4, 5, 6, -99999]));
     await openResult(tester, db, id, size: const Size(320, 568), textScale: 2);
     expect(tester.takeException(), isNull);
+  });
+
+  Future<Uint8List?> shareFlow(
+    WidgetTester tester,
+    AppDatabase db,
+    int id, {
+    bool fails = false,
+  }) async {
+    Uint8List? sent;
+    String? name;
+    await pumpApp(
+      tester,
+      db: db,
+      location: AppRoutes.gameOver(id),
+      overrides: [
+        tableSharerProvider.overrideWithValue((png, fileName, origin) async {
+          if (fails) throw StateError('paylaşım yok');
+          sent = png;
+          name = fileName;
+        }),
+      ],
+    );
+    await tester.tap(find.text('Tabloyu Paylaş'));
+    // Görsel gerçek zamanda çizilir; çizim bitene kadar bekle.
+    for (var i = 0; i < 20; i++) {
+      if (sent != null || find.byType(SnackBar).evaluate().isNotEmpty) break;
+      await tester.runAsync(
+        () => Future<void>.delayed(const Duration(milliseconds: 50)),
+      );
+      await tester.pump();
+    }
+    // Hata bildirimi birkaç saniye sonra kendiliğinden kapanır; beklenmez.
+    await tester.pump(const Duration(milliseconds: 300));
+    if (sent != null) expect(name, 'yazboz-tablo-$id.png');
+    return sent;
+  }
+
+  testApp('tablo görseli paylaşılır: tüm eller PNG içinde', (tester, db) async {
+    final repo = GameRepository(db);
+    final id = await freeGame(db, ['Ayşe', 'Mehmet'], target: 500);
+    for (var i = 0; i < 40; i++) {
+      await repo.addRound(id, const FreeRoundInput([10, 3]));
+    }
+    await repo.finishGame(id);
+    final png = await shareFlow(tester, db, id);
+
+    expect(png, isNotNull);
+    // PNG imzası.
+    expect(png!.take(4).toList(), [0x89, 0x50, 0x4E, 0x47]);
+    expect(png.length, greaterThan(1000));
+    // Çizim ekranda iz bırakmaz.
+    expect(find.byType(ShareTableCard), findsNothing);
+    expect(find.text('Kazanan'), findsOneWidget);
+  });
+
+  testApp('paylaşım başarısızsa çözüm söyler, ekran çalışmaya devam eder', (
+    tester,
+    db,
+  ) async {
+    final id = await freeGame(db, ['Ayşe', 'Mehmet']);
+    await GameRepository(db).addRound(id, const FreeRoundInput([60, 5]));
+    await shareFlow(tester, db, id, fails: true);
+
+    expect(find.textContaining('Tablo görseli hazırlanamadı'), findsOneWidget);
+    expect(
+      tester
+          .widget<FilledButton>(find.widgetWithText(FilledButton, 'Rövanş Yap'))
+          .onPressed,
+      isNotNull,
+    );
   });
 }

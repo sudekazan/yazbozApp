@@ -1634,5 +1634,13 @@
         "type": "int"
       }
     }
+  },
+  "shareTableButton": "Tabloyu Paylaş",
+  "@shareTableButton": {
+    "description": "Skor tablosunu görsel olarak paylaşır."
+  },
+  "shareTableError": "Tablo görseli hazırlanamadı. Biraz sonra yeniden Tabloyu Paylaş'a dokun.",
+  "@shareTableError": {
+    "description": "Paylaşım başarısız olursa; çözüm söyler."
   }
 }

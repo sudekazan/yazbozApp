@@ -12,6 +12,8 @@ import '../common/bottom_action_bar.dart';
 import '../common/game_problem.dart';
 import '../common/score_format.dart';
 import '../common/template_labels.dart';
+import '../scoreboard/scoreboard_logic.dart';
+import 'share_table.dart';
 
 /// Final sıralamasındaki bir satır.
 class FinalRank {
@@ -115,6 +117,30 @@ class _GameOverState extends ConsumerState<_GameOver> {
     setState(() => _busy = true);
     final id = await ref.read(gameRepositoryProvider).rematch(_game.id);
     if (mounted) context.go(AppRoutes.game(id));
+  }
+
+  final _shareKey = GlobalKey();
+
+  /// Tablonun tamamını görsel olarak paylaşır.
+  Future<void> _share() async {
+    if (_busy) return;
+    final l10n = AppLocalizations.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    final sharer = ref.read(tableSharerProvider);
+    final box = _shareKey.currentContext?.findRenderObject() as RenderBox?;
+    final origin = box == null
+        ? null
+        : box.localToGlobal(Offset.zero) & box.size;
+    setState(() => _busy = true);
+    try {
+      final png = await renderTableImage(context, buildScoreboard(_game));
+      if (png == null) throw StateError('Görsel çizilemedi');
+      await sharer(png, 'yazboz-tablo-${_game.id}.png', origin);
+    } on Object {
+      messenger.showSnackBar(SnackBar(content: Text(l10n.shareTableError)));
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
   }
 
   /// Ana sayfaya dönünce oyun kesin biter.
@@ -232,6 +258,13 @@ class _GameOverState extends ConsumerState<_GameOver> {
               onPressed: _busy ? null : _rematch,
               icon: const Icon(Icons.replay),
               label: Text(l10n.rematchButton),
+            ),
+            const SizedBox(height: AppSpacing.xs),
+            OutlinedButton.icon(
+              key: _shareKey,
+              onPressed: _busy ? null : _share,
+              icon: const Icon(Icons.ios_share),
+              label: Text(l10n.shareTableButton),
             ),
             const SizedBox(height: AppSpacing.xs),
             TextButton(
