@@ -78,7 +78,7 @@ abstract final class AppSizes {
   static const double focusOutline = 2;
 
   /// El girişi sayfası ekran yüksekliğinin bu kadarını kaplar.
-  static const double entrySheetHeightFactor = 0.92;
+  static const double entrySheetHeightFactor = 1;
 }
 
 /// Saydamlık değerleri.

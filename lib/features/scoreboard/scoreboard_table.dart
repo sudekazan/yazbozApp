@@ -125,11 +125,21 @@ class _ColumnHeader extends StatelessWidget {
               ),
               child: Column(
                 children: [
+                  // Tek oyunculu sütunda ikonlar ismin üstündeki satırda durur;
+                  // yoksa dar sütunda isim "Oy…" diye kısalır.
+                  if (column.seats.length == 1)
+                    _Badges(
+                      isLeader: column.isLeader,
+                      isDealer: column.dealerSeat != null,
+                    ),
                   for (var i = 0; i < column.seats.length; i++)
                     _NameLine(
                       name: column.names[i],
-                      isLeader: column.isLeader && i == 0,
-                      isDealer: column.dealerSeat == column.seats[i],
+                      isLeader:
+                          column.seats.length > 1 && column.isLeader && i == 0,
+                      isDealer:
+                          column.seats.length > 1 &&
+                          column.dealerSeat == column.seats[i],
                     ),
                   FittedBox(
                     fit: BoxFit.scaleDown,
@@ -144,6 +154,37 @@ class _ColumnHeader extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// Lider kupası ve dağıtıcı kartı için sabit yükseklikte satır; ikon yoksa da
+/// yer tutar, böylece sütunlar hizalı kalır.
+class _Badges extends StatelessWidget {
+  const _Badges({required this.isLeader, required this.isDealer});
+
+  final bool isLeader;
+  final bool isDealer;
+
+  @override
+  Widget build(BuildContext context) {
+    final color = Theme.of(context).colorScheme.onSurface;
+    return SizedBox(
+      height: AppSizes.iconSmall,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (isLeader)
+            Icon(
+              Icons.emoji_events_outlined,
+              size: AppSizes.iconSmall,
+              color: color,
+            ),
+          if (isLeader && isDealer) const SizedBox(width: AppSpacing.xs),
+          if (isDealer)
+            Icon(Icons.style_outlined, size: AppSizes.iconSmall, color: color),
+        ],
       ),
     );
   }

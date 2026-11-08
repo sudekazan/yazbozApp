@@ -77,7 +77,9 @@ class _Okey101EntryState extends RoundFormState<Okey101Entry> {
 
   /// Odak yazılamayan alanda kaldıysa ilk yazılabilir alana geçer.
   void _fixFocus() {
-    if (!_hasField(_fields.focus)) _fields.focus = _firstWritable() ?? 0;
+    if (!_hasField(_fields.focus)) {
+      _fields.focusOn(context, _firstWritable() ?? 0);
+    }
   }
 
   void _setFinisher(Finisher finisher) => change(() {
