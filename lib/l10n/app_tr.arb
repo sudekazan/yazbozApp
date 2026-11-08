@@ -1505,5 +1505,134 @@
         "example": "148"
       }
     }
+  },
+  "settingsThemeTitle": "Tema",
+  "@settingsThemeTitle": {
+    "description": "Ayarlar: tema bölümü."
+  },
+  "themeSystem": "Sistem",
+  "@themeSystem": {
+    "description": "Tema seçeneği."
+  },
+  "themeLight": "Açık",
+  "@themeLight": {
+    "description": "Tema seçeneği."
+  },
+  "themeDark": "Koyu",
+  "@themeDark": {
+    "description": "Tema seçeneği."
+  },
+  "settingsGameTitle": "Oyun",
+  "@settingsGameTitle": {
+    "description": "Ayarlar: oyun bölümü."
+  },
+  "keepScreenOnTitle": "Ekranı açık tut",
+  "@keepScreenOnTitle": {
+    "description": "Ayar adı."
+  },
+  "keepScreenOnHint": "Oyun tablosundayken ekran kapanmaz.",
+  "@keepScreenOnHint": {
+    "description": "Ayar açıklaması."
+  },
+  "hapticsTitle": "Titreşim",
+  "@hapticsTitle": {
+    "description": "Ayar adı."
+  },
+  "hapticsHint": "Dokunuşlarda hafif titreşim verir.",
+  "@hapticsHint": {
+    "description": "Ayar açıklaması."
+  },
+  "dealerDefaultTitle": "Dağıtıcı göstergesi",
+  "@dealerDefaultTitle": {
+    "description": "Ayar adı."
+  },
+  "dealerDefaultHint": "Yeni oyunlarda açık başlar; oyun menüsünden oyun bazında değişir.",
+  "@dealerDefaultHint": {
+    "description": "Ayar açıklaması."
+  },
+  "groupsEmptyMessage": "Henüz kayıtlı grup yok. Oyun kurarken \"Grup Olarak Kaydet\" ile ekleyebilirsin.",
+  "@groupsEmptyMessage": {
+    "description": "Grup yokken ayarlarda görünür."
+  },
+  "aboutTitle": "Hakkında",
+  "@aboutTitle": {
+    "description": "Ayarlar: hakkında satırı."
+  },
+  "aboutMessage": "Masa ve kart oyunları için puan defteri. İnternet, hesap ve reklam yok; tüm veriler bu cihazda kalır.",
+  "@aboutMessage": {
+    "description": "Hakkında diyaloğu."
+  },
+  "deleteGroupTooltip": "{name} grubunu sil",
+  "@deleteGroupTooltip": {
+    "description": "Grup silme ikon butonunun etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ailem"
+      }
+    }
+  },
+  "deleteGroupTitle": "{name} grubu silinsin mi?",
+  "@deleteGroupTitle": {
+    "description": "Grup silme onayı başlığı.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ailem"
+      }
+    }
+  },
+  "deleteGroupMessage": "Gruptaki {count} oyuncu adı silinir. Oynanmış oyunlar etkilenmez.",
+  "@deleteGroupMessage": {
+    "description": "Grup silme onayı açıklaması.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteGroupButton": "Grubu Sil",
+  "@deleteGroupButton": {
+    "description": "Grup silme onayı butonu."
+  },
+  "groupDeletedMessage": "{name} grubu silindi",
+  "@groupDeletedMessage": {
+    "description": "Grup silinince bildirim.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ailem"
+      }
+    }
+  },
+  "editGroupTitle": "Grubu Düzenle",
+  "@editGroupTitle": {
+    "description": "Grup düzenleme ekranı başlığı."
+  },
+  "addPlayerButton": "Oyuncu Ekle",
+  "@addPlayerButton": {
+    "description": "Grupta oyuncu ekler."
+  },
+  "removePlayerTooltip": "{name} adını gruptan çıkar",
+  "@removePlayerTooltip": {
+    "description": "Oyuncu çıkarma ikon butonunun etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "groupMemberCountError": "Grupta {min} ile {max} oyuncu olmalı.",
+  "@groupMemberCountError": {
+    "description": "Grup oyuncu sayısı geçersizse.",
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
   }
 }
