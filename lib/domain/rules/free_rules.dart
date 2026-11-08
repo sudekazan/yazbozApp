@@ -138,6 +138,7 @@ class FreeGameRules extends GameRules {
     return GameStatus(
       isFinished: finished,
       standings: standings,
+      unitTotals: totals,
       target: target,
     );
   }

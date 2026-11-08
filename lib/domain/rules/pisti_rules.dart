@@ -334,6 +334,7 @@ class PistiGameRules extends GameRules {
           totals.any((total) => total >= rules.target) &&
           hasSingleLeader(standings),
       standings: standings,
+      unitTotals: totals,
       target: rules.target,
     );
   }

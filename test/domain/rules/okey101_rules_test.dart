@@ -303,6 +303,7 @@ void main() {
         (0, 62),
       ]);
       expect(engine.units(pairs), hasLength(4));
+      expect(status.unitTotals, [38, -101, 24, 0]);
     });
 
     test('sonunda en düşükler eşitse birlikte kazanır', () {

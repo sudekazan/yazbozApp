@@ -164,6 +164,7 @@ class TavlaGameRules extends GameRules {
     return GameStatus(
       // Her elde sadece kazanan sayı aldığı için hedefte eşitlik olmaz.
       isFinished: totals.any((total) => total >= rules.target),
+      unitTotals: totals,
       standings: rankStandings(
         contenders: contenders(game.config),
         unitTotals: totals,

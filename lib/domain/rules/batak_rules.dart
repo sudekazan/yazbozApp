@@ -246,6 +246,7 @@ class BatakGameRules extends GameRules {
       BatakLength.rounds => GameStatus(
         isFinished: played >= rules.rounds,
         standings: standings,
+        unitTotals: totals,
         roundsLeft: math.max(0, rules.rounds - played),
       ),
       BatakLength.target => GameStatus(
@@ -255,6 +256,7 @@ class BatakGameRules extends GameRules {
             totals.any((total) => total >= rules.target!) &&
             hasSingleLeader(standings),
         standings: standings,
+        unitTotals: totals,
         target: rules.target,
       ),
     };
