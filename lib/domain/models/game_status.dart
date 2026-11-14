@@ -53,11 +53,15 @@ class GameStatus {
   const GameStatus({
     required this.isFinished,
     required this.standings,
+    required this.unitTotals,
     this.target,
     this.roundsLeft,
   });
 
   final bool isFinished;
+
+  /// Her sütunun toplamı (başlangıç puanı dahil), sütun sırasıyla.
+  final List<int> unitTotals;
 
   /// Sıraya göre dizili.
   final List<Standing> standings;

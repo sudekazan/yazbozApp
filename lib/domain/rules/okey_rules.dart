@@ -194,6 +194,7 @@ class OkeyGameRules extends GameRules {
     final totals = unitTotals(game, units.length, start: rules.startingPoints);
     return GameStatus(
       isFinished: totals.any((total) => total <= 0),
+      unitTotals: totals,
       standings: rankStandings(
         contenders: contenders(game.config),
         unitTotals: totals,

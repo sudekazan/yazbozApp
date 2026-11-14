@@ -293,6 +293,11 @@ class GameRepository {
   Future<void> purgeDeletedGames() =>
       (_db.delete(_db.games)..where((g) => g.deletedAt.isNotNull())).go();
 
+  /// Silinmiş işaretli tek bir oyunu kalıcı siler ("Geri Al" süresi dolunca).
+  Future<void> purgeDeletedGame(int gameId) => (_db.delete(
+    _db.games,
+  )..where((g) => g.id.equals(gameId) & g.deletedAt.isNotNull())).go();
+
   /// Daha önce kullanılan isimler; en son kullanılan önce, her isim bir kez.
   /// Silinmiş oyunların isimleri önerilmez; kayıtlı gruplardakiler önerilir.
   Future<List<String>> nameSuggestions({int limit = 20}) async {

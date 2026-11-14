@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 
+import '../../domain/models/game_config.dart';
 import '../../features/game_over/game_over_screen.dart';
 import '../../features/game_setup/game_select_screen.dart';
 import '../../features/game_setup/game_setup_screen.dart';
@@ -36,9 +37,14 @@ GoRouter createAppRouter({String initialLocation = AppRoutes.home}) {
             routes: [
               GoRoute(
                 path: ':template',
-                builder: (context, state) => GameSetupScreen(
-                  template: state.pathParameters['template']!,
-                ),
+                builder: (context, state) {
+                  final template = GameTemplate.fromName(
+                    state.pathParameters['template'] ?? '',
+                  );
+                  return template == null
+                      ? const NotFoundScreen()
+                      : GameSetupScreen(template: template);
+                },
               ),
             ],
           ),

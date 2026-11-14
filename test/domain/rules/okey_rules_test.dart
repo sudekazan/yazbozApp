@@ -158,6 +158,13 @@ void main() {
       expect(status.isFinished, isFalse);
     });
 
+    test('sütun toplamları başlangıç puanını içerir', () {
+      final status = engine.evaluate(
+        gameOf(const [OkeyRoundInput(finisherSeat: 1)]),
+      );
+      expect(status.unitTotals, [18, 20, 18, 18]);
+    });
+
     test('birinin puanı 0 ya da altına inince oyun biter', () {
       final rounds = [
         for (var i = 0; i < 4; i++)

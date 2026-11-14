@@ -37,8 +37,54 @@ abstract final class AppSizes {
   /// Numerik tuş takımındaki tuş yüksekliği.
   static const double keypadKeyHeight = 48;
 
+  /// Liste satırındaki şablon ikonu kutusu.
+  static const double listLeading = 40;
+
+  /// İki satırlı liste öğesinin en küçük yüksekliği.
+  static const double listItemMinHeight = 72;
+
+  /// Oyun seçimindeki şablon kartının en küçük yüksekliği.
+  static const double templateCardMinHeight = 148;
+
+  /// Şablon kartındaki ikon kutusu.
+  static const double templateIconBox = 48;
+
   static const double icon = 24;
   static const double iconSmall = 16;
+
+  /// Skor tablosunda el numarasının durduğu sol sütun.
+  static const double roundNumberColumn = 32;
+
+  /// Skor tablosunda bir elin satır yüksekliği (en az).
+  static const double scoreRowMinHeight = 56;
+
+  /// Skor tablosundaki oyuncu değişikliği notunun yüksekliği (en az).
+  static const double seatNoteMinHeight = 40;
+
+  /// Lider sütununun ince çerçevesi.
+  static const double leaderOutline = 1.5;
+
+  /// El girişindeki puan alanının genişliği.
+  static const double entryFieldWidth = 112;
+
+  /// El girişinde oyuncunun bu eldeki puanının durduğu sütun.
+  static const double entryPointsWidth = 56;
+
+  /// Oyun sonundaki kupa rozeti ve içindeki ikon.
+  static const double winnerBadge = 64;
+  static const double winnerIcon = 32;
+
+  /// Odaktaki giriş alanının çerçevesi.
+  static const double focusOutline = 2;
+
+  /// El girişi sayfası ekran yüksekliğinin bu kadarını kaplar.
+  static const double entrySheetHeightFactor = 1;
+}
+
+/// Saydamlık değerleri.
+abstract final class AppOpacity {
+  /// Pasif öğelerin yazı ve ikonları (Material 3).
+  static const double disabled = 0.38;
 }
 
 /// Animasyon süreleri. Hepsi 150-250 ms aralığında, sadece geçiş için.

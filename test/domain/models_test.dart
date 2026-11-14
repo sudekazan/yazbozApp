@@ -117,6 +117,7 @@ void main() {
     test('devam eden oyunda kazanan yoktur ama lider vardır', () {
       final status = GameStatus(
         isFinished: false,
+        unitTotals: const [3, 7],
         standings: rankStandings(
           contenders: const [
             [0],

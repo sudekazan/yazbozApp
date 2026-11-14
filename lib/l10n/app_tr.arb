@@ -1,58 +1,1646 @@
 {
   "@@locale": "tr",
-
   "appTitle": "Yazboz",
   "@appTitle": {
     "description": "Uygulamanın adı; ana sayfa başlığı ve sistem görev adı."
   },
-
   "settingsTooltip": "Ayarlar",
   "@settingsTooltip": {
     "description": "Ana sayfadaki ayarlar ikon butonunun ekran okuyucu etiketi."
   },
-
   "newGameButton": "Yeni Oyun Kur",
   "@newGameButton": {
     "description": "Ana sayfadaki büyük buton; oyun seçimine götürür."
   },
-
   "gameSelectTitle": "Oyun Seç",
   "@gameSelectTitle": {
     "description": "Oyun seçimi ekranının başlığı."
   },
-
-  "gameSetupTitle": "Oyun Kurulumu",
-  "@gameSetupTitle": {
-    "description": "Oyun kurulumu ekranının başlığı."
-  },
-
   "scoreboardTitle": "Skor Tablosu",
   "@scoreboardTitle": {
     "description": "Skor tablosu ekranının başlığı."
   },
-
   "gameOverTitle": "Oyun Sonu",
   "@gameOverTitle": {
     "description": "Oyun sonu ekranının başlığı."
   },
-
   "settingsTitle": "Ayarlar",
   "@settingsTitle": {
     "description": "Ayarlar ekranının başlığı."
   },
-
   "notFoundTitle": "Sayfa bulunamadı",
   "@notFoundTitle": {
     "description": "Geçersiz bir adres açıldığında gösterilen başlık."
   },
-
   "notFoundMessage": "Aradığın sayfa yok ya da taşınmış. Ana sayfadan devam edebilirsin.",
   "@notFoundMessage": {
     "description": "Geçersiz adreste gösterilen açıklama; kullanıcıyı suçlamaz, çözüm söyler."
   },
-
   "goHomeButton": "Ana Sayfaya Dön",
   "@goHomeButton": {
     "description": "Ana sayfaya götüren buton."
+  },
+  "templateFree": "Serbest",
+  "@templateFree": {
+    "description": "Şablon adı: her oyun için genel skor tablosu."
+  },
+  "templateOkey": "Okey",
+  "@templateOkey": {
+    "description": "Şablon adı: klasik, puan düşmeli okey."
+  },
+  "templateOkey101": "101 Okey",
+  "@templateOkey101": {
+    "description": "Şablon adı."
+  },
+  "templateTavla": "Tavla",
+  "@templateTavla": {
+    "description": "Şablon adı."
+  },
+  "templatePisti": "Pişti",
+  "@templatePisti": {
+    "description": "Şablon adı."
+  },
+  "templateBatak": "Batak",
+  "@templateBatak": {
+    "description": "Şablon adı (İhaleli Batak dahil)."
+  },
+  "templateFreeDescription": "Her oyun için",
+  "@templateFreeDescription": {
+    "description": "Oyun seçimindeki tek satırlık açıklama."
+  },
+  "templateOkeyDescription": "20'den geriye",
+  "@templateOkeyDescription": {
+    "description": "Oyun seçimindeki tek satırlık açıklama."
+  },
+  "templateOkey101Description": "Düşük puan kazanır",
+  "@templateOkey101Description": {
+    "description": "Oyun seçimindeki tek satırlık açıklama."
+  },
+  "templateTavlaDescription": "Mars ve küp",
+  "@templateTavlaDescription": {
+    "description": "Oyun seçimindeki tek satırlık açıklama."
+  },
+  "templatePistiDescription": "Sayaçla puan",
+  "@templatePistiDescription": {
+    "description": "Oyun seçimindeki tek satırlık açıklama."
+  },
+  "templateBatakDescription": "Düz ya da ihaleli",
+  "@templateBatakDescription": {
+    "description": "Oyun seçimindeki tek satırlık açıklama."
+  },
+  "templatePairsTitle": "{template} · Eşli",
+  "@templatePairsTitle": {
+    "description": "Eşli oyunun başlığı.",
+    "placeholders": {
+      "template": {
+        "type": "String",
+        "example": "Pişti"
+      }
+    }
+  },
+  "homeOngoingTitle": "Devam Eden Oyunlar",
+  "@homeOngoingTitle": {
+    "description": "Ana sayfadaki bölüm başlığı."
+  },
+  "homeFinishedTitle": "Biten Oyunlar",
+  "@homeFinishedTitle": {
+    "description": "Ana sayfadaki bölüm başlığı."
+  },
+  "homeEmptyMessage": "Henüz oyun yok. Yeni oyun kurup masadaki puanları burada tutabilirsin.",
+  "@homeEmptyMessage": {
+    "description": "Hiç oyun yokken ana sayfadaki kısa metin."
+  },
+  "homeLoadError": "Oyunlar yüklenemedi. Uygulamayı kapatıp yeniden açmayı dene.",
+  "@homeLoadError": {
+    "description": "Oyun listesi okunamazsa gösterilir."
+  },
+  "homeRoundCount": "{count, plural, =0{Henüz el yok} other{{count} el}}",
+  "@homeRoundCount": {
+    "description": "Oynanan el sayısı.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeRoundsOfTotal": "{played}/{total} el",
+  "@homeRoundsOfTotal": {
+    "description": "El sayısıyla biten oyunda ilerleme.",
+    "placeholders": {
+      "played": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "homeWinner": "Kazanan: {names}",
+  "@homeWinner": {
+    "description": "Biten oyunun alt satırı.",
+    "placeholders": {
+      "names": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "homeUnreadableTitle": "Bu oyun açılamadı",
+  "@homeUnreadableTitle": {
+    "description": "Kaydı bozulan oyunun başlığı."
+  },
+  "homeUnreadableSubtitle": "Kayıt bozulmuş. Kaydırarak silebilirsin.",
+  "@homeUnreadableSubtitle": {
+    "description": "Kaydı bozulan oyun için çözüm."
+  },
+  "gameDeletedMessage": "{name} oyunu silindi",
+  "@gameDeletedMessage": {
+    "description": "Oyun silinince çıkan bildirim.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "101 Okey"
+      }
+    }
+  },
+  "undoButton": "Geri Al",
+  "@undoButton": {
+    "description": "Bildirimdeki geri alma düğmesi."
+  },
+  "deleteAction": "Sil",
+  "@deleteAction": {
+    "description": "Kaydırarak silme ve ekran okuyucu eylemi."
+  },
+  "timeJustNow": "Az önce",
+  "@timeJustNow": {
+    "description": "Bir dakikadan yeni."
+  },
+  "timeMinutesAgo": "{count} dk önce",
+  "@timeMinutesAgo": {
+    "description": "Bir saatten yeni.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "timeHoursAgo": "{count} sa önce",
+  "@timeHoursAgo": {
+    "description": "Aynı gün, bir saatten eski.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "timeYesterday": "Dün",
+  "@timeYesterday": {
+    "description": "Bir önceki gün."
+  },
+  "teamNames": "{first} & {second}",
+  "@teamNames": {
+    "description": "Bir takımın iki oyuncusu.",
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "second": {
+        "type": "String"
+      }
+    }
+  },
+  "teamsVersus": "{first} – {second}",
+  "@teamsVersus": {
+    "description": "İki takım yan yana.",
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "second": {
+        "type": "String"
+      }
+    }
+  },
+  "setupGroupsTitle": "Kayıtlı gruplar",
+  "@setupGroupsTitle": {
+    "description": "Kurulumda grup listesinin başlığı."
+  },
+  "setupPlayerCount": "Kişi sayısı",
+  "@setupPlayerCount": {
+    "description": "Kişi sayısı seçicisinin etiketi."
+  },
+  "decreasePlayerCount": "Kişi sayısını azalt",
+  "@decreasePlayerCount": {
+    "description": "Ekran okuyucu etiketi."
+  },
+  "increasePlayerCount": "Kişi sayısını artır",
+  "@increasePlayerCount": {
+    "description": "Ekran okuyucu etiketi."
+  },
+  "setupPlayMode": "Oynanış",
+  "@setupPlayMode": {
+    "description": "Bireysel/eşli seçiminin etiketi."
+  },
+  "playModeIndividual": "Bireysel",
+  "@playModeIndividual": {
+    "description": "Oynanış seçeneği."
+  },
+  "playModePairs": "Eşli",
+  "@playModePairs": {
+    "description": "Oynanış seçeneği (2'ye 2)."
+  },
+  "setupPlayersTitle": "Oyuncular",
+  "@setupPlayersTitle": {
+    "description": "Oyuncu listesinin başlığı."
+  },
+  "setupPlayersHint": "Oturma sırasına göre sürükle.",
+  "@setupPlayersHint": {
+    "description": "Oyuncu listesinin açıklaması."
+  },
+  "setupPairsHint": "Karşılıklı oturanlar eş.",
+  "@setupPairsHint": {
+    "description": "Eşli oyunda takımların nasıl belirlendiği."
+  },
+  "defaultPlayerName": "Oyuncu {number}",
+  "@defaultPlayerName": {
+    "description": "Kurulumda dolu gelen varsayılan isim.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "playerFieldLabel": "{number}. oyuncunun adı",
+  "@playerFieldLabel": {
+    "description": "İsim alanının ekran okuyucu etiketi.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "movePlayer": "{name} sırasını değiştir",
+  "@movePlayer": {
+    "description": "Sürükleme tutamacının etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "teamLetterA": "A",
+  "@teamLetterA": {
+    "description": "Birinci takımın kısa adı."
+  },
+  "teamLetterB": "B",
+  "@teamLetterB": {
+    "description": "İkinci takımın kısa adı."
+  },
+  "teamLabel": "{team} takımı",
+  "@teamLabel": {
+    "description": "Takım rozetinin ekran okuyucu etiketi.",
+    "placeholders": {
+      "team": {
+        "type": "String"
+      }
+    }
+  },
+  "firstDealerIs": "İlk dağıtan: {name}",
+  "@firstDealerIs": {
+    "description": "İlk dağıtıcı bilgisi.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "makeFirstDealer": "{name} ilk dağıtsın",
+  "@makeFirstDealer": {
+    "description": "İlk dağıtıcıyı seçen düğmenin etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "suggestionsLabel": "Öneri:",
+  "@suggestionsLabel": {
+    "description": "Daha önce kullanılan isimlerin başındaki etiket."
+  },
+  "saveAsGroupButton": "Grup Olarak Kaydet",
+  "@saveAsGroupButton": {
+    "description": "Girilen isimleri grup olarak kaydeder."
+  },
+  "groupNameLabel": "Grup adı",
+  "@groupNameLabel": {
+    "description": "Grup adı alanının etiketi."
+  },
+  "cancelButton": "Vazgeç",
+  "@cancelButton": {
+    "description": "Diyaloğu kapatır."
+  },
+  "saveButton": "Kaydet",
+  "@saveButton": {
+    "description": "Kaydeder."
+  },
+  "groupSavedMessage": "{name} grubu kaydedildi",
+  "@groupSavedMessage": {
+    "description": "Grup kaydedilince bildirim.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "groupDoesNotFit": "{name} grubunda {count} kişi var; bu oyun {allowed} kişiyle oynanır.",
+  "@groupDoesNotFit": {
+    "description": "Grup şablona uymuyorsa. allowed: oynanabilen kişi sayıları (\"2 ya da 4\").",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      },
+      "allowed": {
+        "type": "String"
+      }
+    }
+  },
+  "orList": "{rest} ya da {last}",
+  "@orList": {
+    "description": "Seçenek listesinin sonu: \"3, 4 ya da 5\".",
+    "placeholders": {
+      "rest": {
+        "type": "String"
+      },
+      "last": {
+        "type": "String"
+      }
+    }
+  },
+  "startGameButton": "Oyunu Başlat",
+  "@startGameButton": {
+    "description": "Kurulumdaki ana buton."
+  },
+  "nameErrorEmpty": "İsim boş kalamaz. Bir isim yaz.",
+  "@nameErrorEmpty": {
+    "description": "Boş isim hatası."
+  },
+  "nameErrorTooLong": "İsim en fazla {max} karakter olabilir.",
+  "@nameErrorTooLong": {
+    "description": "Uzun isim hatası.",
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "winDirectionLabel": "Kim kazanır?",
+  "@winDirectionLabel": {
+    "description": "Serbest: kazanma yönü."
+  },
+  "winHighest": "En yüksek",
+  "@winHighest": {
+    "description": "Serbest: en yüksek toplam kazanır."
+  },
+  "winLowest": "En düşük",
+  "@winLowest": {
+    "description": "Serbest: en düşük toplam kazanır."
+  },
+  "targetLabel": "Hedef puan",
+  "@targetLabel": {
+    "description": "Hedef puan alanı."
+  },
+  "freeTargetHelper": "Boş bırakırsan oyunu sen bitirirsin.",
+  "@freeTargetHelper": {
+    "description": "Serbest: hedef isteğe bağlı."
+  },
+  "targetCustom": "Özel",
+  "@targetCustom": {
+    "description": "Hedef seçeneklerinde özel değer."
+  },
+  "targetRequired": "Hedef puanı gir.",
+  "@targetRequired": {
+    "description": "Hedef zorunluyken boş bırakılırsa."
+  },
+  "roundsLabel": "El sayısı",
+  "@roundsLabel": {
+    "description": "Oyunun kaç el süreceği."
+  },
+  "decreaseRounds": "El sayısını azalt",
+  "@decreaseRounds": {
+    "description": "Ekran okuyucu etiketi."
+  },
+  "increaseRounds": "El sayısını artır",
+  "@increaseRounds": {
+    "description": "Ekran okuyucu etiketi."
+  },
+  "batakModeLabel": "Mod",
+  "@batakModeLabel": {
+    "description": "Batak modu."
+  },
+  "batakPlain": "Düz Batak",
+  "@batakPlain": {
+    "description": "Batak modu."
+  },
+  "batakBidding": "İhaleli Batak",
+  "@batakBidding": {
+    "description": "Batak modu."
+  },
+  "gameLengthLabel": "Oyun süresi",
+  "@gameLengthLabel": {
+    "description": "El sayısı ya da hedef puan seçimi."
+  },
+  "rulesTitle": "Kurallar",
+  "@rulesTitle": {
+    "description": "Kural ayarları bölümü."
+  },
+  "rulesDefaultSubtitle": "Varsayılan değerler",
+  "@rulesDefaultSubtitle": {
+    "description": "Kurallar değiştirilmediyse."
+  },
+  "rulesChangedSubtitle": "Değiştirildi",
+  "@rulesChangedSubtitle": {
+    "description": "Kurallar değiştirildiyse."
+  },
+  "ruleNumberError": "Geçerli bir sayı gir.",
+  "@ruleNumberError": {
+    "description": "Sayı alanı boş ya da geçersiz."
+  },
+  "ruleRangeError": "{min} ile {max} arasında bir sayı gir.",
+  "@ruleRangeError": {
+    "description": "Sayı aralık dışında.",
+    "placeholders": {
+      "min": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "max": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "ruleStartingPoints": "Başlangıç puanı",
+  "@ruleStartingPoints": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleNormalFinish": "Normal bitiş",
+  "@ruleNormalFinish": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleOkeyFinish": "Okey atarak bitiş",
+  "@ruleOkeyFinish": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePairsFinish": "Çifte bitiş",
+  "@rulePairsFinish": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleOkeyPairsFinish": "Okey atarak çifte bitiş",
+  "@ruleOkeyPairsFinish": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleIndicator": "Gösterge",
+  "@ruleIndicator": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleFinishPoints": "Eli bitiren (eksi)",
+  "@ruleFinishPoints": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleNotOpenedPoints": "Hiç açamayan",
+  "@ruleNotOpenedPoints": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleOkeyMultiplier": "Okeyle bitiş çarpanı",
+  "@ruleOkeyMultiplier": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleHandFinishMultiplier": "Elden bitiş çarpanı",
+  "@ruleHandFinishMultiplier": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePairsFinishMultiplier": "Çiftten bitiş çarpanı",
+  "@rulePairsFinishMultiplier": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePairsRemainingMultiplier": "Çift açıp bitiremeyenin çarpanı",
+  "@rulePairsRemainingMultiplier": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePenaltyTileToMeld": "İşler taş atma cezası",
+  "@rulePenaltyTileToMeld": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePenaltyDiscardOkey": "Okey atma cezası",
+  "@rulePenaltyDiscardOkey": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePenaltyWrongOpen": "Yanlış açma cezası",
+  "@rulePenaltyWrongOpen": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleNormalPoints": "Normal galibiyet",
+  "@ruleNormalPoints": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleMarsPoints": "Mars",
+  "@ruleMarsPoints": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleDoublingCube": "Katlama küpü",
+  "@ruleDoublingCube": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "rulePisti": "Pişti",
+  "@rulePisti": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleJackPisti": "Vale piştisi",
+  "@ruleJackPisti": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleMajority": "Kart çoğunluğu",
+  "@ruleMajority": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleClubTwo": "Sinek 2",
+  "@ruleClubTwo": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleDiamondTen": "Karo 10",
+  "@ruleDiamondTen": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleAce": "Her as",
+  "@ruleAce": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleJack": "Her vale",
+  "@ruleJack": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleMinBid": "En az ihale",
+  "@ruleMinBid": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "ruleZeroTricksPoints": "Hiç el alamayan",
+  "@ruleZeroTricksPoints": {
+    "description": "Kurallar bölümündeki alan adı."
+  },
+  "scoreboardRoundsLeft": "{count} el kaldı",
+  "@scoreboardRoundsLeft": {
+    "description": "El sayısıyla biten oyunda kalan el.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scoreboardTarget": "Hedef {target}",
+  "@scoreboardTarget": {
+    "description": "Hedefli oyunda başlığın altındaki bilgi.",
+    "placeholders": {
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "scoreboardFinished": "Oyun bitti",
+  "@scoreboardFinished": {
+    "description": "Kesin biten oyunun başlığının altındaki bilgi."
+  },
+  "scoreboardInfo": "{first} · {second}",
+  "@scoreboardInfo": {
+    "description": "Başlığın altındaki iki bilgiyi birleştirir.",
+    "placeholders": {
+      "first": {
+        "type": "String",
+        "example": "4/9 el"
+      },
+      "second": {
+        "type": "String",
+        "example": "5 el kaldı"
+      }
+    }
+  },
+  "undoTooltip": "Son işlemi geri al",
+  "@undoTooltip": {
+    "description": "Skor tablosundaki geri al ikon butonunun etiketi."
+  },
+  "gameMenuTooltip": "Oyun menüsü",
+  "@gameMenuTooltip": {
+    "description": "Skor tablosundaki menü ikon butonunun etiketi."
+  },
+  "menuShowRules": "Kuralları Gör",
+  "@menuShowRules": {
+    "description": "Oyun menüsü öğesi; kuralları salt okunur gösterir."
+  },
+  "menuDealerIndicator": "Dağıtıcıyı Göster",
+  "@menuDealerIndicator": {
+    "description": "Oyun menüsünde dağıtıcı göstergesini açıp kapatan öğe."
+  },
+  "menuRestart": "Yeniden Başlat",
+  "@menuRestart": {
+    "description": "Oyun menüsü öğesi; elleri siler, oyuncular kalır."
+  },
+  "menuFinishGame": "Oyunu Bitir",
+  "@menuFinishGame": {
+    "description": "Oyun menüsü öğesi ve onay diyaloğundaki buton."
+  },
+  "addRoundButton": "El Ekle",
+  "@addRoundButton": {
+    "description": "Skor tablosunun altındaki ana buton."
+  },
+  "showResultButton": "Sonucu Gör",
+  "@showResultButton": {
+    "description": "Oyun bitince El Ekle yerine çıkan buton."
+  },
+  "emptyRoundsMessage": "Henüz el yok. İlk elin puanlarını El Ekle ile gir.",
+  "@emptyRoundsMessage": {
+    "description": "Hiç el yokken tablonun yerinde görünür."
+  },
+  "seatChangeNote": "{round}. elden itibaren: {from} → {to}",
+  "@seatChangeNote": {
+    "description": "Tabloda oyuncu değişikliği notu.",
+    "placeholders": {
+      "round": {
+        "type": "int"
+      },
+      "from": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "to": {
+        "type": "String",
+        "example": "Mehmet"
+      }
+    }
+  },
+  "multiplierBadge": "x{multiplier}",
+  "@multiplierBadge": {
+    "description": "El çarpanı rozeti (101).",
+    "placeholders": {
+      "multiplier": {
+        "type": "int"
+      }
+    }
+  },
+  "roundSemantics": "{number}. el: {scores}",
+  "@roundSemantics": {
+    "description": "Bir elin ekran okuyucu etiketi.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "scores": {
+        "type": "String",
+        "example": "Ayşe 54, Mehmet −101"
+      }
+    }
+  },
+  "roundMultiplierSemantics": "{number}. el, {multiplier} kat: {scores}",
+  "@roundMultiplierSemantics": {
+    "description": "Çarpanlı elin ekran okuyucu etiketi.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "multiplier": {
+        "type": "int"
+      },
+      "scores": {
+        "type": "String",
+        "example": "Ayşe 54, Mehmet −101"
+      }
+    }
+  },
+  "nameAndPoints": "{name} {points}",
+  "@nameAndPoints": {
+    "description": "Ekran okuyucu için isim ve puan.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "points": {
+        "type": "String",
+        "example": "54"
+      }
+    }
+  },
+  "columnSemantics": "{name}, toplam {total}",
+  "@columnSemantics": {
+    "description": "Sütun başlığının ekran okuyucu etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "total": {
+        "type": "String",
+        "example": "76"
+      }
+    }
+  },
+  "leaderSemantics": "önde",
+  "@leaderSemantics": {
+    "description": "Lider sütunun ekran okuyucu eki."
+  },
+  "dealerSemantics": "{name} sıradaki eli dağıtacak",
+  "@dealerSemantics": {
+    "description": "Dağıtıcı sütunun ekran okuyucu eki.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "teamTotalSemantics": "{names}, takım toplamı {total}",
+  "@teamTotalSemantics": {
+    "description": "Takım toplamının ekran okuyucu etiketi.",
+    "placeholders": {
+      "names": {
+        "type": "String",
+        "example": "Ayşe & Zeynep"
+      },
+      "total": {
+        "type": "String",
+        "example": "62"
+      }
+    }
+  },
+  "playerOptionsHint": "oyuncu seçeneklerini aç",
+  "@playerOptionsHint": {
+    "description": "Sütun başlığına dokununca ne olacağı (ekran okuyucu)."
+  },
+  "replacePlayerButton": "Oyuncuyu Değiştir",
+  "@replacePlayerButton": {
+    "description": "Koltuğa yeni oyuncu oturtur."
+  },
+  "replacePlayerHelper": "{round}. elden itibaren geçerli. Puanlar bu sütunda sürer.",
+  "@replacePlayerHelper": {
+    "description": "Oyuncu değiştirme diyaloğundaki açıklama.",
+    "placeholders": {
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "renamePlayerButton": "İsmi Düzenle",
+  "@renamePlayerButton": {
+    "description": "Koltuktaki oyuncunun ismini düzeltir."
+  },
+  "renamePlayerHelper": "Sadece yazımı düzeltir; tabloda not kalmaz.",
+  "@renamePlayerHelper": {
+    "description": "İsim düzenleme diyaloğundaki açıklama."
+  },
+  "makeDealerButton": "Dağıtıcı Yap",
+  "@makeDealerButton": {
+    "description": "Sıradaki eli bu oyuncu dağıtsın."
+  },
+  "newPlayerNameLabel": "Yeni oyuncunun adı",
+  "@newPlayerNameLabel": {
+    "description": "Oyuncu değiştirme diyaloğundaki alanın etiketi."
+  },
+  "playerNameLabel": "Oyuncunun adı",
+  "@playerNameLabel": {
+    "description": "İsim düzenleme diyaloğundaki alanın etiketi."
+  },
+  "deleteRoundTitle": "{number}. el silinsin mi?",
+  "@deleteRoundTitle": {
+    "description": "El silme onayı başlığı.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteRoundMessage": "Bu elin puanları toplamdan düşülür.",
+  "@deleteRoundMessage": {
+    "description": "El silme onayı açıklaması."
+  },
+  "deleteRoundButton": "Eli Sil",
+  "@deleteRoundButton": {
+    "description": "El silme onayındaki buton ve ekran okuyucu eylemi."
+  },
+  "roundDeletedMessage": "{number}. el silindi",
+  "@roundDeletedMessage": {
+    "description": "El silinince çıkan bildirim.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "restartTitle": "Bu oyundaki {count} el silinsin mi?",
+  "@restartTitle": {
+    "description": "Yeniden başlatma onayı başlığı.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "restartMessage": "Oyuncular kalır, puanlar sıfırlanır. Bu işlem geri alınamaz.",
+  "@restartMessage": {
+    "description": "Yeniden başlatma onayı açıklaması."
+  },
+  "restartButton": "Elleri Sil",
+  "@restartButton": {
+    "description": "Yeniden başlatma onayındaki buton."
+  },
+  "finishTitle": "Oyun bitirilsin mi?",
+  "@finishTitle": {
+    "description": "Oyunu elle bitirme onayı başlığı."
+  },
+  "finishMessage": "Şu anki sıralamayla sonuç ekranı açılır. Bu oyuna artık el eklenemez.",
+  "@finishMessage": {
+    "description": "Oyunu elle bitirme onayı açıklaması."
+  },
+  "gameNotFoundMessage": "Bu oyun bulunamadı, silinmiş olabilir. Ana sayfadan başka bir oyun seçebilirsin.",
+  "@gameNotFoundMessage": {
+    "description": "Açılan oyun yoksa gösterilir."
+  },
+  "gameUnreadableMessage": "Bu oyun açılamadı, kaydı bozulmuş. Ana sayfada kaydırarak silebilirsin.",
+  "@gameUnreadableMessage": {
+    "description": "Oyun kaydı okunamazsa gösterilir."
+  },
+  "ruleNone": "Yok",
+  "@ruleNone": {
+    "description": "Kurallarda boş değer (ör. hedef yok)."
+  },
+  "ruleOn": "Açık",
+  "@ruleOn": {
+    "description": "Kurallarda açık ayar."
+  },
+  "ruleOff": "Kapalı",
+  "@ruleOff": {
+    "description": "Kurallarda kapalı ayar."
+  },
+  "roundEntryTitle": "{number}. el",
+  "@roundEntryTitle": {
+    "description": "El girişi sayfasının başlığı.",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "closeTooltip": "Kapat",
+  "@closeTooltip": {
+    "description": "Sayfayı kaydetmeden kapatan ikon butonunun etiketi."
+  },
+  "keypadLabel": "Sayı tuşları",
+  "@keypadLabel": {
+    "description": "Numerik tuş takımının ekran okuyucu etiketi."
+  },
+  "keypadBackspace": "Son rakamı sil",
+  "@keypadBackspace": {
+    "description": "Silme tuşunun etiketi; uzun basınca alan temizlenir."
+  },
+  "keypadMinus": "Eksi",
+  "@keypadMinus": {
+    "description": "Eksi işareti tuşunun ekran okuyucu etiketi."
+  },
+  "keypadPrevious": "Önceki oyuncuya geç",
+  "@keypadPrevious": {
+    "description": "Yukarı ok tuşunun etiketi."
+  },
+  "keypadNext": "Sonraki oyuncuya geç",
+  "@keypadNext": {
+    "description": "Aşağı ok tuşunun etiketi."
+  },
+  "pointsFieldSemantics": "{name}, bu el {points}, yeni toplam {total}",
+  "@pointsFieldSemantics": {
+    "description": "El girişindeki oyuncu satırının ekran okuyucu etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "points": {
+        "type": "String",
+        "example": "12"
+      },
+      "total": {
+        "type": "String",
+        "example": "54"
+      }
+    }
+  },
+  "newTotalPreview": "Yeni toplam {total}",
+  "@newTotalPreview": {
+    "description": "El girişinde kaydetmeden önce görünen toplam.",
+    "placeholders": {
+      "total": {
+        "type": "String",
+        "example": "54"
+      }
+    }
+  },
+  "roundSaveError": "El kaydedilemedi. Puanları kontrol edip yeniden Kaydet'e dokun.",
+  "@roundSaveError": {
+    "description": "El kaydı başarısız olursa; çözüm söyler."
+  },
+  "editRoundHint": "eli düzenle",
+  "@editRoundHint": {
+    "description": "Ele dokununca ne olacağı (ekran okuyucu)."
+  },
+  "errorTricksTotal": "Toplam el sayısı {expected} olmalı, şu an {actual}.",
+  "@errorTricksTotal": {
+    "description": "Batak: el sayıları toplamı tutmuyor.",
+    "placeholders": {
+      "expected": {
+        "type": "int"
+      },
+      "actual": {
+        "type": "int"
+      }
+    }
+  },
+  "errorBidderRequired": "İhaleyi alanı seç.",
+  "@errorBidderRequired": {
+    "description": "Batak: ihaleyi alan seçilmedi."
+  },
+  "errorClubTwoRequired": "Sinek 2'yi alanı seç.",
+  "@errorClubTwoRequired": {
+    "description": "Pişti: Sinek 2 sahibi seçilmedi."
+  },
+  "errorDiamondTenRequired": "Karo 10'u alanı seç.",
+  "@errorDiamondTenRequired": {
+    "description": "Pişti: Karo 10 sahibi seçilmedi."
+  },
+  "errorAcesOverLimit": "Destede 4 as var, şu an toplam {actual}. Birinin sayısını azalt.",
+  "@errorAcesOverLimit": {
+    "description": "Pişti: as toplamı 4'ü geçiyor.",
+    "placeholders": {
+      "actual": {
+        "type": "int"
+      }
+    }
+  },
+  "errorJacksOverLimit": "Destede 4 vale var, şu an toplam {actual}. Birinin sayısını azalt.",
+  "@errorJacksOverLimit": {
+    "description": "Pişti: vale toplamı 4'ü geçiyor.",
+    "placeholders": {
+      "actual": {
+        "type": "int"
+      }
+    }
+  },
+  "errorFinisherRequired": "Bitiş biçimi için önce bitireni seç.",
+  "@errorFinisherRequired": {
+    "description": "Bitiren seçilmeden bitiş biçimi seçildi."
+  },
+  "errorPointsTooLarge": "Bir puan en fazla {max} olabilir; büyük sayıyı küçült.",
+  "@errorPointsTooLarge": {
+    "description": "Puan sınırı aşıldı.",
+    "placeholders": {
+      "max": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "errorWinnerRequired": "Eli kazananı seç.",
+  "@errorWinnerRequired": {
+    "description": "Tavla: kazanan seçilmedi."
+  },
+  "errorFinisherOrNobody": "Eli bitireni seç; kimse bitiremediyse \"Kimse bitiremedi\"yi seç.",
+  "@errorFinisherOrNobody": {
+    "description": "Okey/101: bitiren seçilmedi."
+  },
+  "errorMajorityRequired": "Kart çoğunluğunu alanı seç; kartlar eşitse \"Eşit\"i seç.",
+  "@errorMajorityRequired": {
+    "description": "Pişti: kart çoğunluğu seçilmedi."
+  },
+  "errorPenaltyPlayer": "Cezanın kime yazılacağını seç.",
+  "@errorPenaltyPlayer": {
+    "description": "Ceza diyaloğu: oyuncu seçilmedi."
+  },
+  "errorPenaltyKind": "Ceza türünü seç.",
+  "@errorPenaltyKind": {
+    "description": "Ceza diyaloğu: tür seçilmedi."
+  },
+  "errorPenaltyAmount": "Ceza tutarı 1 ile {max} arasında olmalı.",
+  "@errorPenaltyAmount": {
+    "description": "Ceza diyaloğu: tutar geçersiz.",
+    "placeholders": {
+      "max": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "previewTitle": "Bu elin puanları",
+  "@previewTitle": {
+    "description": "El girişinde puan önizlemesinin başlığı."
+  },
+  "previewIncomplete": "Bu elin puanları, seçimler tamamlanınca görünür",
+  "@previewIncomplete": {
+    "description": "Önizleme eksikken ekran okuyucu etiketi."
+  },
+  "whoWonLabel": "Kim kazandı?",
+  "@whoWonLabel": {
+    "description": "Tavla: kazanan seçiminin etiketi."
+  },
+  "howWonLabel": "Nasıl kazandı?",
+  "@howWonLabel": {
+    "description": "Tavla: Normal/Mars seçiminin etiketi."
+  },
+  "tavlaNormal": "Normal",
+  "@tavlaNormal": {
+    "description": "Tavla: normal galibiyet."
+  },
+  "tavlaMars": "Mars",
+  "@tavlaMars": {
+    "description": "Tavla: mars galibiyet."
+  },
+  "whoFinishedLabel": "Kim bitirdi?",
+  "@whoFinishedLabel": {
+    "description": "Okey/101: bitiren seçiminin etiketi."
+  },
+  "nobodyFinished": "Kimse bitiremedi",
+  "@nobodyFinished": {
+    "description": "Okey/101: kimse bitiremedi seçeneği."
+  },
+  "howFinishedLabel": "Nasıl bitti?",
+  "@howFinishedLabel": {
+    "description": "Bitiş türü seçiminin etiketi."
+  },
+  "okeyFinishNormal": "Normal",
+  "@okeyFinishNormal": {
+    "description": "Okey: normal bitiş."
+  },
+  "indicatorShownLabel": "Gösterge gösteren",
+  "@indicatorShownLabel": {
+    "description": "Okey: göstergeyi gösterenler."
+  },
+  "indicatorShownHint": "diğerlerinden {points}",
+  "@indicatorShownHint": {
+    "description": "Okey: göstergenin diğerlerine etkisi.",
+    "placeholders": {
+      "points": {
+        "type": "String",
+        "example": "−1"
+      }
+    }
+  },
+  "multipliersHint": "çarpanlar birbiriyle çarpılır",
+  "@multipliersHint": {
+    "description": "101: bitiş çarpanları açıklaması."
+  },
+  "okey101WithOkey": "Okeyle ×{multiplier}",
+  "@okey101WithOkey": {
+    "description": "101: okeyle bitiş seçeneği.",
+    "placeholders": {
+      "multiplier": {
+        "type": "int"
+      }
+    }
+  },
+  "okey101FromHand": "Elden ×{multiplier}",
+  "@okey101FromHand": {
+    "description": "101: elden bitiş seçeneği.",
+    "placeholders": {
+      "multiplier": {
+        "type": "int"
+      }
+    }
+  },
+  "okey101FromPairs": "Çiftten ×{multiplier}",
+  "@okey101FromPairs": {
+    "description": "101: çiftten bitiş seçeneği.",
+    "placeholders": {
+      "multiplier": {
+        "type": "int"
+      }
+    }
+  },
+  "remainingTilesLabel": "Kalan taşlar",
+  "@remainingTilesLabel": {
+    "description": "101: oyuncu satırlarının başlığı."
+  },
+  "playerFinished": "Bitirdi",
+  "@playerFinished": {
+    "description": "101: eli bitiren oyuncunun satırı."
+  },
+  "partnerFinished": "Eşi bitirdi, 0 yazar",
+  "@partnerFinished": {
+    "description": "101 eşli: bitirenin eşi."
+  },
+  "openedPairsChip": "Çift",
+  "@openedPairsChip": {
+    "description": "101: çiftten açan oyuncu seçimi."
+  },
+  "openedPairsTooltip": "{name} çiftten açtı",
+  "@openedPairsTooltip": {
+    "description": "101: Çift seçiminin açıklaması.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "notOpenedChip": "Açamadı",
+  "@notOpenedChip": {
+    "description": "101: hiç açamayan oyuncu seçimi."
+  },
+  "notOpenedTooltip": "{name} açamadı",
+  "@notOpenedTooltip": {
+    "description": "101: Açamadı seçiminin açıklaması.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "remainingFieldSemantics": "{name} kalan taş toplamı, {value}",
+  "@remainingFieldSemantics": {
+    "description": "101: kalan taş alanının ekran okuyucu etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "value": {
+        "type": "String",
+        "example": "38"
+      }
+    }
+  },
+  "roundPointsSemantics": "bu el {points}",
+  "@roundPointsSemantics": {
+    "description": "Oyuncunun bu eldeki puanı (ekran okuyucu).",
+    "placeholders": {
+      "points": {
+        "type": "String",
+        "example": "38"
+      }
+    }
+  },
+  "penaltiesLabel": "Cezalar",
+  "@penaltiesLabel": {
+    "description": "101: ceza bölümü."
+  },
+  "penaltiesHint": "elden ayrı, çarpansız",
+  "@penaltiesHint": {
+    "description": "101: cezaların nasıl işlediği."
+  },
+  "penaltyChip": "{name} · {kind} +{amount}",
+  "@penaltyChip": {
+    "description": "101: eklenen ceza.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Zeynep"
+      },
+      "kind": {
+        "type": "String",
+        "example": "İşler taş atma"
+      },
+      "amount": {
+        "type": "String",
+        "example": "101"
+      }
+    }
+  },
+  "removePenalty": "Cezayı kaldır",
+  "@removePenalty": {
+    "description": "101: ceza silme düğmesinin etiketi."
+  },
+  "addPenaltyButton": "Ceza Ekle",
+  "@addPenaltyButton": {
+    "description": "101: ceza ekleme düğmesi ve diyalog başlığı."
+  },
+  "penaltyTileToMeld": "İşler taş atma",
+  "@penaltyTileToMeld": {
+    "description": "101 ceza türü."
+  },
+  "penaltyDiscardOkey": "Okey atma",
+  "@penaltyDiscardOkey": {
+    "description": "101 ceza türü."
+  },
+  "penaltyWrongOpen": "Yanlış açma",
+  "@penaltyWrongOpen": {
+    "description": "101 ceza türü."
+  },
+  "penaltyCustom": "Diğer",
+  "@penaltyCustom": {
+    "description": "101 ceza türü; tutar girilir."
+  },
+  "penaltyWhoLabel": "Kime?",
+  "@penaltyWhoLabel": {
+    "description": "Ceza diyaloğunda oyuncu seçimi."
+  },
+  "penaltyKindLabel": "Ceza",
+  "@penaltyKindLabel": {
+    "description": "Ceza diyaloğunda tür seçimi."
+  },
+  "penaltyAmountLabel": "Ceza tutarı",
+  "@penaltyAmountLabel": {
+    "description": "Ceza diyaloğunda tutar alanı."
+  },
+  "pistiCountMode": "Sayaçla",
+  "@pistiCountMode": {
+    "description": "Pişti: sayaçla giriş."
+  },
+  "pistiDirectMode": "Doğrudan puan",
+  "@pistiDirectMode": {
+    "description": "Pişti: doğrudan puan girişi."
+  },
+  "pistiAces": "As",
+  "@pistiAces": {
+    "description": "Pişti: as sayacı."
+  },
+  "pistiJacks": "Vale",
+  "@pistiJacks": {
+    "description": "Pişti: vale sayacı."
+  },
+  "perItem": "her biri {points}",
+  "@perItem": {
+    "description": "Pişti: sayacın puanı.",
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "perItemOfFour": "her biri {points}, toplam 4",
+  "@perItemOfFour": {
+    "description": "Pişti: as/vale sayacının puanı.",
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "directPointsSemantics": "{name} puanı, {value}",
+  "@directPointsSemantics": {
+    "description": "Pişti doğrudan puan alanı (ekran okuyucu).",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "value": {
+        "type": "String",
+        "example": "21"
+      }
+    }
+  },
+  "counterDecrease": "{name}: {counter} azalt",
+  "@counterDecrease": {
+    "description": "Sayaç azaltma etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "counter": {
+        "type": "String",
+        "example": "Pişti"
+      }
+    }
+  },
+  "counterIncrease": "{name}: {counter} artır",
+  "@counterIncrease": {
+    "description": "Sayaç artırma etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      },
+      "counter": {
+        "type": "String",
+        "example": "Pişti"
+      }
+    }
+  },
+  "majorityTie": "Eşit",
+  "@majorityTie": {
+    "description": "Pişti: kart sayıları eşit."
+  },
+  "bidderLabel": "İhaleyi alan",
+  "@bidderLabel": {
+    "description": "Batak: ihaleyi alan seçimi."
+  },
+  "bidLabel": "İhale",
+  "@bidLabel": {
+    "description": "Batak: ihale miktarı."
+  },
+  "bidRange": "{min}–{max}",
+  "@bidRange": {
+    "description": "Batak: ihale aralığı.",
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "decreaseBid": "İhaleyi azalt",
+  "@decreaseBid": {
+    "description": "Batak: ihale azaltma etiketi."
+  },
+  "increaseBid": "İhaleyi artır",
+  "@increaseBid": {
+    "description": "Batak: ihale artırma etiketi."
+  },
+  "trumpLabel": "Koz",
+  "@trumpLabel": {
+    "description": "Batak: koz seçimi."
+  },
+  "optionalHint": "isteğe bağlı",
+  "@optionalHint": {
+    "description": "İsteğe bağlı alan açıklaması."
+  },
+  "suitClubs": "Sinek",
+  "@suitClubs": {
+    "description": "Kart rengi."
+  },
+  "suitDiamonds": "Karo",
+  "@suitDiamonds": {
+    "description": "Kart rengi."
+  },
+  "suitHearts": "Kupa",
+  "@suitHearts": {
+    "description": "Kart rengi."
+  },
+  "suitSpades": "Maça",
+  "@suitSpades": {
+    "description": "Kart rengi."
+  },
+  "tricksLabel": "Alınan eller",
+  "@tricksLabel": {
+    "description": "Batak: el sayıları bölümü."
+  },
+  "tricksTotalHint": "toplam {total}",
+  "@tricksTotalHint": {
+    "description": "Batak: bir dağıtımdaki el sayısı.",
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "bidMade": "İhale {bid} · tuttu",
+  "@bidMade": {
+    "description": "Batak: ihaleyi alan tutturdu.",
+    "placeholders": {
+      "bid": {
+        "type": "int"
+      }
+    }
+  },
+  "bidFailed": "İhale {bid} · battı",
+  "@bidFailed": {
+    "description": "Batak: ihaleyi alan batırdı.",
+    "placeholders": {
+      "bid": {
+        "type": "int"
+      }
+    }
+  },
+  "decreaseTricks": "{name} el sayısını azalt",
+  "@decreaseTricks": {
+    "description": "Batak: el sayısı azaltma etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "increaseTricks": "{name} el sayısını artır",
+  "@increaseTricks": {
+    "description": "Batak: el sayısı artırma etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "okeyFinishOkey": "Okey atarak",
+  "@okeyFinishOkey": {
+    "description": "Okey: el girişindeki bitiş türü."
+  },
+  "okeyFinishPairs": "Çifte",
+  "@okeyFinishPairs": {
+    "description": "Okey: el girişindeki bitiş türü."
+  },
+  "okeyFinishOkeyPairs": "Okey atarak çifte",
+  "@okeyFinishOkeyPairs": {
+    "description": "Okey: el girişindeki bitiş türü."
+  },
+  "gameOverWinner": "Kazanan",
+  "@gameOverWinner": {
+    "description": "Oyun sonunda kazanan isminin üstündeki etiket."
+  },
+  "gameOverWinners": "Kazananlar",
+  "@gameOverWinners": {
+    "description": "Berabere biten oyunda kazananların üstündeki etiket."
+  },
+  "pointsCount": "{points} puan",
+  "@pointsCount": {
+    "description": "Puan miktarı.",
+    "placeholders": {
+      "points": {
+        "type": "String",
+        "example": "148"
+      }
+    }
+  },
+  "finalRankingTitle": "Final sıralaması",
+  "@finalRankingTitle": {
+    "description": "Oyun sonundaki sıralama başlığı."
+  },
+  "replacedNote": "{round}. elden itibaren {name} yerine",
+  "@replacedNote": {
+    "description": "Oyun sonunda oyuncu değişikliği notu.",
+    "placeholders": {
+      "round": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String",
+        "example": "Can"
+      }
+    }
+  },
+  "rematchButton": "Rövanş Yap",
+  "@rematchButton": {
+    "description": "Aynı oyuncu ve ayarlarla yeni oyun açar."
+  },
+  "gameNotOverMessage": "Bu oyun henüz bitmedi. Tabloya dönüp ellere devam edebilirsin.",
+  "@gameNotOverMessage": {
+    "description": "Bitmemiş oyunun sonuç ekranı açılırsa."
+  },
+  "backToTableButton": "Tabloya Dön",
+  "@backToTableButton": {
+    "description": "Skor tablosuna götüren buton."
+  },
+  "rankSemantics": "{rank}. {name}, {points} puan",
+  "@rankSemantics": {
+    "description": "Final sıralaması satırının ekran okuyucu etiketi.",
+    "placeholders": {
+      "rank": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String",
+        "example": "Zeynep"
+      },
+      "points": {
+        "type": "String",
+        "example": "148"
+      }
+    }
+  },
+  "settingsThemeTitle": "Tema",
+  "@settingsThemeTitle": {
+    "description": "Ayarlar: tema bölümü."
+  },
+  "themeSystem": "Sistem",
+  "@themeSystem": {
+    "description": "Tema seçeneği."
+  },
+  "themeLight": "Açık",
+  "@themeLight": {
+    "description": "Tema seçeneği."
+  },
+  "themeDark": "Koyu",
+  "@themeDark": {
+    "description": "Tema seçeneği."
+  },
+  "settingsGameTitle": "Oyun",
+  "@settingsGameTitle": {
+    "description": "Ayarlar: oyun bölümü."
+  },
+  "keepScreenOnTitle": "Ekranı açık tut",
+  "@keepScreenOnTitle": {
+    "description": "Ayar adı."
+  },
+  "keepScreenOnHint": "Oyun tablosundayken ekran kapanmaz.",
+  "@keepScreenOnHint": {
+    "description": "Ayar açıklaması."
+  },
+  "hapticsTitle": "Titreşim",
+  "@hapticsTitle": {
+    "description": "Ayar adı."
+  },
+  "hapticsHint": "Dokunuşlarda hafif titreşim verir.",
+  "@hapticsHint": {
+    "description": "Ayar açıklaması."
+  },
+  "dealerDefaultTitle": "Dağıtıcı göstergesi",
+  "@dealerDefaultTitle": {
+    "description": "Ayar adı."
+  },
+  "dealerDefaultHint": "Yeni oyunlarda açık başlar; oyun menüsünden oyun bazında değişir.",
+  "@dealerDefaultHint": {
+    "description": "Ayar açıklaması."
+  },
+  "groupsEmptyMessage": "Henüz kayıtlı grup yok. Oyun kurarken \"Grup Olarak Kaydet\" ile ekleyebilirsin.",
+  "@groupsEmptyMessage": {
+    "description": "Grup yokken ayarlarda görünür."
+  },
+  "aboutTitle": "Hakkında",
+  "@aboutTitle": {
+    "description": "Ayarlar: hakkında satırı."
+  },
+  "aboutMessage": "Masa ve kart oyunları için puan defteri. İnternet, hesap ve reklam yok; tüm veriler bu cihazda kalır.",
+  "@aboutMessage": {
+    "description": "Hakkında diyaloğu."
+  },
+  "deleteGroupTooltip": "{name} grubunu sil",
+  "@deleteGroupTooltip": {
+    "description": "Grup silme ikon butonunun etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ailem"
+      }
+    }
+  },
+  "deleteGroupTitle": "{name} grubu silinsin mi?",
+  "@deleteGroupTitle": {
+    "description": "Grup silme onayı başlığı.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ailem"
+      }
+    }
+  },
+  "deleteGroupMessage": "Gruptaki {count} oyuncu adı silinir. Oynanmış oyunlar etkilenmez.",
+  "@deleteGroupMessage": {
+    "description": "Grup silme onayı açıklaması.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteGroupButton": "Grubu Sil",
+  "@deleteGroupButton": {
+    "description": "Grup silme onayı butonu."
+  },
+  "groupDeletedMessage": "{name} grubu silindi",
+  "@groupDeletedMessage": {
+    "description": "Grup silinince bildirim.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ailem"
+      }
+    }
+  },
+  "editGroupTitle": "Grubu Düzenle",
+  "@editGroupTitle": {
+    "description": "Grup düzenleme ekranı başlığı."
+  },
+  "addPlayerButton": "Oyuncu Ekle",
+  "@addPlayerButton": {
+    "description": "Grupta oyuncu ekler."
+  },
+  "removePlayerTooltip": "{name} adını gruptan çıkar",
+  "@removePlayerTooltip": {
+    "description": "Oyuncu çıkarma ikon butonunun etiketi.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Ayşe"
+      }
+    }
+  },
+  "groupMemberCountError": "Grupta {min} ile {max} oyuncu olmalı.",
+  "@groupMemberCountError": {
+    "description": "Grup oyuncu sayısı geçersizse.",
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "shareTableButton": "Tabloyu Paylaş",
+  "@shareTableButton": {
+    "description": "Skor tablosunu görsel olarak paylaşır."
+  },
+  "shareTableError": "Tablo görseli hazırlanamadı. Biraz sonra yeniden Tabloyu Paylaş'a dokun.",
+  "@shareTableError": {
+    "description": "Paylaşım başarısız olursa; çözüm söyler."
   }
 }

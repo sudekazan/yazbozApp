@@ -386,6 +386,7 @@ class Okey101GameRules extends GameRules {
     final played = game.rounds.length;
     return GameStatus(
       isFinished: played >= rules.rounds,
+      unitTotals: totals,
       standings: rankStandings(
         contenders: contenders(game.config),
         unitTotals: totals,
